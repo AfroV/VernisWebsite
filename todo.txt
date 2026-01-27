@@ -1,0 +1,19 @@
+  1. What is Vernis? Is it a digital art frame that displays NFTs? A      
+  physical NFT display device? Please describe the concept and mission.   
+  2. What does purchasing an NFT include?                                 
+    - Just the physical hardware?                                         
+    - Hardware + exclusive digital art?                                   
+    - Access to a platform/gallery?                                       
+  3. Pricing:                                                             
+    - Premium (Pi 5 + 2K OLED + wooden box): $___?                        
+    - Standard (Pi Zero 2W + 4" 720×720 LCD): $___?                       
+  4. Branding:                                                            
+    - Do you have a logo?                                                 
+    - Color preferences?                                                  
+    - Any existing brand guidelines?                                      
+  5. Additional content needed:                                           
+    - Contact information?                                                
+    - Social media links?                                                 
+    - FAQ section?                                                        
+    - Team/about section?                                                 
+                           

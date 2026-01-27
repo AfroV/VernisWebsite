@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" fill="none">
+  <defs>
+    <linearGradient id="woodGrain" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5D4037"/>
+      <stop offset="25%" style="stop-color:#4E342E"/>
+      <stop offset="50%" style="stop-color:#6D4C41"/>
+      <stop offset="75%" style="stop-color:#4E342E"/>
+      <stop offset="100%" style="stop-color:#5D4037"/>
+    </linearGradient>
+    <linearGradient id="screenGlow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e"/>
+      <stop offset="50%" style="stop-color:#16213e"/>
+      <stop offset="100%" style="stop-color:#0f0f23"/>
+    </linearGradient>
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0c06f"/>
+      <stop offset="50%" style="stop-color:#c9a54e"/>
+      <stop offset="100%" style="stop-color:#a8863d"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="20" stdDeviation="20" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <!-- Main wooden frame -->
+  <g filter="url(#shadow)">
+    <!-- Outer wooden box -->
+    <rect x="50" y="80" width="300" height="380" rx="12" fill="url(#woodGrain)"/>
+
+    <!-- Wood grain lines -->
+    <path d="M60 100 Q150 120 340 95" stroke="#3E2723" stroke-width="0.5" opacity="0.4"/>
+    <path d="M55 150 Q180 165 345 145" stroke="#3E2723" stroke-width="0.5" opacity="0.3"/>
+    <path d="M50 220 Q200 240 350 210" stroke="#3E2723" stroke-width="0.5" opacity="0.4"/>
+    <path d="M55 300 Q150 315 345 290" stroke="#3E2723" stroke-width="0.5" opacity="0.3"/>
+    <path d="M50 380 Q200 400 350 375" stroke="#3E2723" stroke-width="0.5" opacity="0.4"/>
+
+    <!-- Inner bezel -->
+    <rect x="65" y="95" width="270" height="300" rx="6" fill="#2a2a2a"/>
+
+    <!-- Gold trim -->
+    <rect x="65" y="95" width="270" height="300" rx="6" fill="none" stroke="url(#goldAccent)" stroke-width="2"/>
+
+    <!-- 2K OLED Screen -->
+    <rect x="75" y="105" width="250" height="280" rx="4" fill="url(#screenGlow)"/>
+
+    <!-- Screen content - Abstract NFT art -->
+    <g clip-path="url(#screenClip)">
+      <clipPath id="screenClip">
+        <rect x="75" y="105" width="250" height="280" rx="4"/>
+      </clipPath>
+
+      <!-- Abstract art shapes -->
+      <circle cx="150" cy="200" r="60" fill="#c9a54e" opacity="0.3"/>
+      <circle cx="250" cy="280" r="80" fill="#e0c06f" opacity="0.2"/>
+      <rect x="100" y="150" width="80" height="120" fill="#c9a54e" opacity="0.4" transform="rotate(15 140 210)"/>
+      <polygon points="200,120 280,220 200,320 120,220" fill="none" stroke="#c9a54e" stroke-width="2" opacity="0.6"/>
+
+      <!-- Screen reflection -->
+      <rect x="75" y="105" width="250" height="140" fill="url(#reflection)" opacity="0.1"/>
+      <linearGradient id="reflection" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" style="stop-color:#ffffff"/>
+        <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0"/>
+      </linearGradient>
+    </g>
+
+    <!-- Bottom panel with branding -->
+    <rect x="65" y="400" width="270" height="50" rx="6" fill="#3E2723"/>
+
+    <!-- VERNIS text -->
+    <text x="200" y="432" font-family="Georgia, serif" font-size="18" fill="url(#goldAccent)" text-anchor="middle" letter-spacing="4">VERNIS</text>
+
+    <!-- Premium badge -->
+    <text x="200" y="448" font-family="Arial, sans-serif" font-size="8" fill="#999" text-anchor="middle" letter-spacing="2">PREMIUM</text>
+  </g>
+
+  <!-- Subtle ambient glow -->
+  <ellipse cx="200" cy="500" rx="120" ry="20" fill="#c9a54e" opacity="0.1"/>
+</svg>
