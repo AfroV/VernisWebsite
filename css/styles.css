@@ -432,6 +432,31 @@ section {
     border-color: var(--color-gold-light);
 }
 
+.product-card--featured {
+    border-color: var(--color-gold);
+    max-width: 480px;
+    margin: 0 auto;
+}
+
+.product-card--featured:hover {
+    border-color: var(--color-gold-light);
+}
+
+.products__grid--single {
+    grid-template-columns: 1fr;
+    max-width: 480px;
+}
+
+.products__note {
+    text-align: center;
+    color: var(--color-light-gray);
+    font-size: 0.9rem;
+    margin-top: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 /* Product Image */
 .product-card__image {
     height: 320px;
@@ -506,6 +531,15 @@ section {
     color: var(--color-light-gray);
     font-weight: 400;
     margin-left: 0.5rem;
+}
+
+.product-card__subtitle {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    margin-bottom: 0.75rem;
+    font-weight: 600;
 }
 
 .product-card__specs {
@@ -923,6 +957,175 @@ section {
     .section-header h2 {
         font-size: 1.75rem;
     }
+}
+
+/* ---------------------------------------------
+   Terms Checkbox
+   --------------------------------------------- */
+.product-card__terms {
+    margin-bottom: 1.25rem;
+}
+
+.terms-checkbox {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: var(--color-light-gray);
+    line-height: 1.5;
+}
+
+.terms-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.terms-checkbox__mark {
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    border: 2px solid var(--color-dark-gray);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-normal);
+    margin-top: 1px;
+}
+
+.terms-checkbox input:checked + .terms-checkbox__mark {
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.terms-checkbox input:checked + .terms-checkbox__mark::after {
+    content: '';
+    width: 10px;
+    height: 10px;
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E") no-repeat center;
+    background-size: contain;
+}
+
+.terms-checkbox__label a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.terms-checkbox__label a:hover {
+    color: var(--color-gold-light);
+}
+
+.terms-checkbox.error .terms-checkbox__mark {
+    border-color: #e74c3c;
+}
+
+/* Disabled mint button state */
+.btn[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* ---------------------------------------------
+   Legal Pages
+   --------------------------------------------- */
+.legal-page {
+    padding: 8rem 5% 4rem;
+    background: var(--color-black);
+}
+
+.legal-page__content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.legal-page__content h1 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 0.5rem;
+}
+
+.legal-page__updated {
+    color: var(--color-light-gray);
+    font-size: 0.9rem;
+    margin-bottom: 3rem;
+}
+
+.legal-page__content h2 {
+    font-family: var(--font-sans);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--color-gold);
+}
+
+.legal-page__content h3 {
+    font-family: var(--font-sans);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.legal-page__content p {
+    color: var(--color-light-gray);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+}
+
+.legal-page__content ul {
+    color: var(--color-light-gray);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    list-style: disc;
+}
+
+.legal-page__content li {
+    margin-bottom: 0.5rem;
+}
+
+.legal-page__content a {
+    color: var(--color-gold);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+.legal-page__content a:hover {
+    color: var(--color-gold-light);
+}
+
+.legal-page__content table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+}
+
+.legal-page__content th,
+.legal-page__content td {
+    border: 1px solid var(--color-dark-gray);
+    padding: 0.75rem 1rem;
+    text-align: left;
+    color: var(--color-light-gray);
+}
+
+.legal-page__content th {
+    background: var(--color-charcoal);
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.legal-page__note {
+    background: rgba(201, 165, 78, 0.1);
+    border-left: 3px solid var(--color-gold);
+    padding: 1rem 1.25rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.85rem;
+    color: var(--color-gold);
 }
 
 /* ---------------------------------------------

@@ -148,22 +148,43 @@
     });
 
     // ---------------------------------------------
-    // Mint Button Click Handler (Placeholder)
+    // Terms Checkbox & Mint Button
     // ---------------------------------------------
-    const mintButtons = document.querySelectorAll('[data-mint]');
+    const termsCheckbox = document.getElementById('terms-accept');
+    const mintBtn = document.getElementById('mint-btn');
 
-    mintButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
+    if (termsCheckbox && mintBtn) {
+        // Disable mint button initially
+        mintBtn.setAttribute('disabled', 'true');
+
+        termsCheckbox.addEventListener('change', () => {
+            const termsLabel = termsCheckbox.closest('.terms-checkbox');
+            if (termsCheckbox.checked) {
+                mintBtn.removeAttribute('disabled');
+                termsLabel.classList.remove('error');
+            } else {
+                mintBtn.setAttribute('disabled', 'true');
+            }
+        });
+
+        mintBtn.addEventListener('click', (e) => {
             e.preventDefault();
-            const productType = button.getAttribute('data-mint');
 
-            // Placeholder - Replace with actual Web3 integration
+            if (!termsCheckbox.checked) {
+                const termsLabel = termsCheckbox.closest('.terms-checkbox');
+                termsLabel.classList.add('error');
+                return;
+            }
+
+            const productType = mintBtn.getAttribute('data-mint');
+
+            // Placeholder - Replace with actual Web3 / Transient Labs integration
             console.log(`Minting ${productType}...`);
 
             // Show coming soon message
-            alert(`Minting for Vernis ${productType} coming soon!\n\nJoin our waitlist to be notified when minting goes live.`);
+            alert(`Minting for ${productType} coming soon!\n\nJoin our waitlist to be notified when minting goes live.`);
         });
-    });
+    }
 
     // ---------------------------------------------
     // Waitlist Form Handler (if exists)
