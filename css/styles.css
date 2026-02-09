@@ -746,7 +746,7 @@ section {
 }
 
 .faq__item.active .faq__answer {
-    max-height: 200px;
+    max-height: 500px;
     padding-top: 1rem;
 }
 
