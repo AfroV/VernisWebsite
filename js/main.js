@@ -151,13 +151,8 @@
                 return;
             }
 
-            const productType = mintBtn.getAttribute('data-mint');
-
-            // Placeholder - Replace with actual Web3 / Transient Labs integration
-            console.log(`Minting ${productType}...`);
-
-            // Show coming soon message
-            alert(`Minting for ${productType} coming soon!\n\nJoin our waitlist to be notified when minting goes live.`);
+            // Open Transient Labs mint page
+            window.open('https://www.transient.xyz/mint/vernis2', '_blank', 'noopener');
         });
     }
 
