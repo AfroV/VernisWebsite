@@ -509,6 +509,30 @@ section {
     letter-spacing: 0.05em;
 }
 
+.product-card__badge--sold {
+    background: var(--color-medium-gray);
+    color: var(--color-white);
+}
+
+.product-card__sold-notice {
+    color: var(--color-light-gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-dark-gray);
+}
+
+.product-card__sold-notice a {
+    color: var(--color-gold);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.product-card__sold-notice a:hover {
+    text-decoration: underline;
+}
+
 /* Product Content */
 .product-card__content {
     padding: 2rem;
