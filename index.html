@@ -174,53 +174,91 @@
     <!-- Products Section -->
     <section class="products" id="products">
       <div class="section-header">
-        <h2>Vernis — First Edition</h2>
+        <h2>Vernis — Metal Edition</h2>
         <p>
-          A signed, numbered NFT with everything you need to build your own
-          preservation gallery.
+          A handmade metal frame that permanently displays digital art you truly
+          own. Pay in euros by card or crypto — we ship the kit and deliver your
+          signed, numbered NFT.
         </p>
       </div>
-      <div class="products__grid products__grid--single">
-        <!-- Vernis Product -->
-        <div class="product-card product-card--featured">
+      <div class="products__grid">
+        <!-- Standard Metal Edition -->
+        <div class="product-card product-card--premium">
           <div class="product-card__image">
-            <span class="product-card__badge product-card__badge--sold">Sold Out</span>
             <img
               src="images/vernis-nft.jpg"
-              alt="Vernis - compact NFT preservation kit with 4 inch IPS display"
+              alt="Vernis Metal Edition - handmade metal frame displaying digital art"
             />
           </div>
           <div class="product-card__content">
-            <h3 class="product-card__title">Vernis</h3>
-            <div class="product-card__price">0.24 ETH</div>
-            <p class="product-card__subtitle">Your NFT includes</p>
+            <h3 class="product-card__title">Metal Edition</h3>
+            <div class="product-card__price">€600</div>
+            <p class="product-card__subtitle">What you get</p>
             <ul class="product-card__specs">
-              <li>Signed &amp; numbered Vernis</li>
+              <li>Signed &amp; numbered Vernis NFT</li>
+              <li>Handmade metal enclosure</li>
               <li>Raspberry Pi 5</li>
-              <li>4" IPS Touch Display</li>
+              <li>4" IPS touch display</li>
               <li>128GB storage with IPFS backup software</li>
-              <li>Custom PETG enclosure</li>
               <li>Power supply &amp; assembly guide</li>
               <li>Full control — your hardware, no restrictions</li>
             </ul>
-            <p class="product-card__sold-notice">
-              First Edition is sold out. Interested in the next wave? Reach out
-              to
-              <a
-                href="https://x.com/NFTart"
-                target="_blank"
-                rel="noopener"
-                >@NFTart</a
-              >
-              on X.
+            <!-- TODO: replace with the live Stripe Payment Link for the €600 Standard edition -->
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_STANDARD_600"
+              class="btn btn-primary product-card__cta"
+              target="_blank"
+              rel="noopener"
+              >Reserve — €600</a
+            >
+            <p class="product-card__fineprint">
+              Card or crypto, charged in EUR. Checkout collects your shipping
+              address and wallet — your NFT is delivered straight to it.
+            </p>
+          </div>
+        </div>
+
+        <!-- Artist-Collab Metal Edition -->
+        <div class="product-card product-card--featured">
+          <div class="product-card__image">
+            <span class="product-card__badge">Artist Collab</span>
+            <img
+              src="images/vernis-nft.jpg"
+              alt="Vernis Artist-Collab Metal Edition - artist-designed digital art on a metal frame"
+            />
+          </div>
+          <div class="product-card__content">
+            <h3 class="product-card__title">Artist-Collab Edition</h3>
+            <div class="product-card__price">€700</div>
+            <p class="product-card__subtitle">What you get</p>
+            <ul class="product-card__specs">
+              <li>Signed, numbered NFT designed by a featured artist</li>
+              <li>Handmade metal enclosure</li>
+              <li>Raspberry Pi 5</li>
+              <li>4" IPS touch display</li>
+              <li>128GB storage with IPFS backup software</li>
+              <li>Power supply &amp; assembly guide</li>
+              <li>A share of every sale goes directly to the artist</li>
+            </ul>
+            <!-- TODO: replace with the live Stripe Payment Link for the €700 Artist-Collab edition -->
+            <a
+              href="https://buy.stripe.com/PLACEHOLDER_ARTIST_700"
+              class="btn btn-primary product-card__cta"
+              target="_blank"
+              rel="noopener"
+              >Reserve — €700</a
+            >
+            <p class="product-card__fineprint">
+              Card or crypto, charged in EUR. Checkout collects your shipping
+              address and wallet — your NFT is delivered straight to it.
             </p>
           </div>
         </div>
       </div>
       <p class="products__note">
-        First Edition holders will receive their kits — burn your NFT to claim
-        yours. Shipping and handling is paid by the claimer. Unclaimed NFTs are
-        tradeable on secondary markets.
+        Signed edition. Want to build it yourself instead? The enclosure files
+        and software are open source —
+        <a href="#diy">see the DIY route below</a>.
       </p>
     </section>
 
@@ -256,33 +294,57 @@
     <section class="how-it-works" id="how-it-works">
       <div class="section-header">
         <h2>How It Works</h2>
-        <p>From mint to display in three simple steps.</p>
+        <p>From checkout to display in three simple steps.</p>
       </div>
       <div class="how-it-works__steps">
         <div class="step">
           <div class="step__number">1</div>
-          <h3 class="step__title">Mint Your NFT</h3>
+          <h3 class="step__title">Buy in Euros</h3>
           <p class="step__description">
-            Collect a signed, numbered Vernis NFT on Ethereum. Your edition
-            number is permanently recorded on-chain.
+            Pay by card or crypto, charged in EUR. At checkout you give us your
+            shipping address and the wallet where your NFT should live.
           </p>
         </div>
         <div class="step">
           <div class="step__number">2</div>
-          <h3 class="step__title">Receive Your Kit</h3>
+          <h3 class="step__title">We Ship &amp; Deliver</h3>
           <p class="step__description">
-            Claim your preservation kit — all components, custom enclosure, and
-            assembly guide shipped directly to you.
+            We send your signed, numbered NFT directly to your wallet and ship
+            the handmade metal kit — with the right plug for your region — to
+            your door.
           </p>
         </div>
         <div class="step">
           <div class="step__number">3</div>
-          <h3 class="step__title">Build &amp; Preserve</h3>
+          <h3 class="step__title">Power On &amp; Display</h3>
           <p class="step__description">
-            Assemble your gallery, connect your wallet. Vernis automatically
-            backs up your entire collection to local IPFS storage.
+            Assemble in minutes, connect your wallet, and your art is on the
+            wall. Vernis backs up your collection to local IPFS storage — yours
+            to keep, forever.
           </p>
         </div>
+      </div>
+    </section>
+
+    <!-- DIY Section -->
+    <section class="diy" id="diy">
+      <div class="diy__inner">
+        <p class="diy__eyebrow">Open Source</p>
+        <h2 class="diy__title">Rather build it yourself?</h2>
+        <p class="diy__text">
+          The metal edition is the easiest way to own a Vernis — but it doesn't
+          have to be the only one. Our enclosure files and backup software are
+          open source. Bring your own Raspberry Pi and display, print or machine
+          the case, and build your gallery from scratch. No purchase required.
+        </p>
+        <!-- TODO: point this at the public repo holding the enclosure files + build guide -->
+        <a
+          href="https://github.com/AfroV/"
+          class="btn btn-secondary"
+          target="_blank"
+          rel="noopener"
+          >Get the files on GitHub</a
+        >
       </div>
     </section>
 
@@ -321,24 +383,25 @@
       </div>
       <div class="faq__grid">
         <div class="faq__item">
-          <div class="faq__question">What exactly do I get when I mint?</div>
+          <div class="faq__question">What exactly do I get?</div>
           <div class="faq__answer">
-            You receive a signed, numbered Vernis NFT on Ethereum — a
-            collectible in its own right. As an NFT holder, you can claim a
-            complete preservation kit: Raspberry Pi 5 with pre-loaded software,
-            4" IPS display, 128GB storage, custom PETG enclosure, power supply,
-            and an assembly guide. Everything you need to build your own
-            preservation gallery.
+            A signed, numbered Vernis NFT — a collectible in its own right —
+            plus the complete metal-edition kit: a handmade metal enclosure,
+            Raspberry Pi 5 with pre-loaded software, 4" IPS display, 128GB
+            storage, power supply, and an assembly guide. Everything you need to
+            display and preserve your art.
           </div>
         </div>
         <div class="faq__item">
-          <div class="faq__question">How does claiming the kit work?</div>
+          <div class="faq__question">
+            How do I pay, and how is my NFT delivered?
+          </div>
           <div class="faq__answer">
-            After minting, your NFT is marked as "unclaimed" and can be freely
-            traded on secondary markets. When you're ready, burn the NFT to
-            claim your kit — we collect your shipping details and ship the
-            components to you. Unclaimed NFTs may carry additional value since
-            they still include the kit redemption right.
+            You pay in euros at checkout — by card, or in crypto that settles to
+            EUR. There's no minting and no ETH required. At checkout you give us
+            your shipping address and the wallet address where you want your
+            NFT. After payment we send the signed, numbered NFT straight to that
+            wallet and ship your metal kit.
           </div>
         </div>
         <div class="faq__item">
@@ -384,12 +447,12 @@
 
     <!-- CTA Section -->
     <section class="cta">
-      <h2 class="cta__title">Join the Founding Collectors</h2>
+      <h2 class="cta__title">Own a Piece of the Edition</h2>
       <p class="cta__description">
-        Limited first edition. Be among the first to own the future of NFT
-        preservation.
+        A handmade metal frame for the digital art you truly own. Pay in euros,
+        delivered to your door and your wallet.
       </p>
-      <a href="#products" class="btn btn-primary">Mint Your Vernis</a>
+      <a href="#products" class="btn btn-primary">Reserve Your Metal Edition</a>
     </section>
 
     <!-- Footer -->
@@ -441,7 +504,8 @@
         <div class="footer__section">
           <h4>Product</h4>
           <div class="footer__links">
-            <a href="#products">Vernis First Edition</a>
+            <a href="#products">Metal Edition</a>
+            <a href="#diy">Build It Yourself</a>
             <a href="#how-it-works">How It Works</a>
             <a href="#faq">FAQ</a>
           </div>
