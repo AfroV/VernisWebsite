@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Vernis – Screen calibration</title>
+  <link rel="stylesheet" href="calibrate.css">
+</head>
+<body>
+  <header class="bar">
+    <select id="scene"></select>
+    <label>Art <select id="art"><option value="pattern">Test pattern</option><option value="file">Local file…</option><option value="none">None</option></select></label>
+    <input type="file" id="file" accept="image/*,video/*" hidden>
+    <label>Opacity <input type="range" id="opacity" min="0" max="1" step="0.05" value="0.85"></label>
+    <span id="status"></span>
+    <button id="save">Save screens.json</button>
+  </header>
+  <main>
+    <div class="stage" id="stage">
+      <img id="photo" alt="">
+      <div class="art" id="art-layer"></div>
+      <div class="handle" data-i="0"></div><div class="handle" data-i="1"></div>
+      <div class="handle" data-i="2"></div><div class="handle" data-i="3"></div>
+    </div>
+    <canvas id="loupe" width="220" height="220"></canvas>
+  </main>
+  <p class="help">Drag the four corners onto the inner edge of the screen (TL, TR, BR, BL). Click a handle, then arrow keys nudge 1 px (Shift = 10 px).</p>
+  <script type="module" src="calibrate.js"></script>
+</body>
+</html>
