@@ -7,7 +7,7 @@ import { attachWarp } from './screen-warp.js';
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const HERO_INTERVAL = 7000;
 const FADE_MS = 600;
-const FORMATS = 'a JPG, PNG, GIF, WebP, MP4 or WebM';
+const FORMATS = 'a JPG, PNG, GIF, WebP, SVG, MP4 or WebM';
 
 // ---------------------------------------------
 // Navigation
@@ -170,7 +170,16 @@ function initHero() {
 // ---------------------------------------------
 // Viewer: pick a setting and a piece, or use your own file
 // ---------------------------------------------
-const ACCEPTED = /^(image\/(jpeg|png|gif|webp|avif)|video\/(mp4|webm|quicktime))$/;
+const ACCEPTED = /^(image\/(jpeg|png|gif|webp|avif|svg\+xml)|video\/(mp4|webm|quicktime))$/;
+// Some systems report an empty MIME type (often for SVG), so fall back to the extension.
+const BY_EXTENSION = { svg: 'image', jpg: 'image', jpeg: 'image', png: 'image', gif: 'image', webp: 'image', avif: 'image', mp4: 'video', webm: 'video', mov: 'video' };
+
+/** 'image' | 'video' for a file the viewer can show, otherwise null. */
+function fileKind(file) {
+  if (ACCEPTED.test(file.type)) return file.type.startsWith('video/') ? 'video' : 'image';
+  if (file.type) return null;
+  return BY_EXTENSION[file.name.split('.').pop().toLowerCase()] || null;
+}
 
 function initViewer() {
   const section = document.getElementById('try');
@@ -277,13 +286,16 @@ function initViewer() {
 
   function useFile(file) {
     if (!file) return;
-    if (!ACCEPTED.test(file.type)) {
+    const kind = fileKind(file);
+    if (!kind) {
       status.textContent = `${file.name} isn't a supported format. Use ${FORMATS}.`;
       return;
     }
     if (userUrl) URL.revokeObjectURL(userUrl);
-    userUrl = URL.createObjectURL(file);
-    lastFileType = file.type.startsWith('video/') ? 'video' : 'image';
+    // An SVG without a MIME type won't render in <img>; label it so it does.
+    const isUntypedSvg = !file.type && /\.svg$/i.test(file.name);
+    userUrl = URL.createObjectURL(isUntypedSvg ? new Blob([file], { type: 'image/svg+xml' }) : file);
+    lastFileType = kind;
     art = { kind: 'file', type: lastFileType };
     renderLibrary();
     render();
