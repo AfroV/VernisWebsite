@@ -99,11 +99,17 @@ Dropped: 02–08, 10, 11, 13 (near-duplicates / reflections), 14–18 (patterned
 ### 3. `js/screen-warp.js` (shared, ES module, no dependencies)
 
 - `computeHomography(srcQuad, dstQuad)` → 3×3 matrix (8-unknown linear solve).
-- `quadToMatrix3d(corners, boxW, boxH, contentSize)` → CSS `matrix3d(...)` string that
-  maps a `contentSize`×`contentSize` element onto the corners, given the rendered image
-  box size.
-- `attachWarp(imgEl, contentEl, corners)` → positions `contentEl` absolutely over
-  `imgEl`, applies the transform, and re-applies on resize (ResizeObserver).
+- `computeWarp(corners, boxW, boxH, contentSize, offsetX?, offsetY?)` → CSS `matrix3d(...)`
+  string that maps a `contentSize`×`contentSize` element onto the corners, given the drawn
+  image size and its px offset inside the shared containing block (offsets default to 0).
+- `drawnImageRect({boxW, boxH, naturalW, naturalH, fit, posX, posY})` → `{x, y, w, h}`:
+  where the image pixels are drawn inside the img content box, honouring `object-fit`
+  (fill/cover/contain/scale-down/none) and `object-position` (% or px). Pure.
+- `attachWarp(imgEl, contentEl, corners, contentSize?)` → positions `contentEl` absolutely
+  over the drawn image pixels (accounts for padding/border/offset and object-fit), applies
+  the transform, and re-applies on resize (ResizeObserver) and load. `contentEl` must share
+  a positioned ancestor with `imgEl`. `corners` null or a degenerate quad hides the
+  content. Returns `{update(corners), destroy()}`; `destroy()` resets the inline styles.
 - Works for `<img>`, `<video>`, `<canvas>` content alike. Content is square; non-square
   art is fit with `object-fit: cover` (B may change this).
 

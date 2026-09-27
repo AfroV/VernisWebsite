@@ -22,6 +22,7 @@ SELECTION = ROOT / "tools/photos/selection.json"
 SCENES_JSON = ROOT / "data/screens.json"
 OUT_IMAGES = ROOT / "images/scenes"
 CHECK = ROOT / "tools/photos/out/check.jpg"
+BUDGET = 15e6  # bytes for all web scene images
 
 
 def _checker(size=400):
@@ -31,7 +32,15 @@ def _checker(size=400):
     return rgb
 
 
-def _check_tile(img: Image.Image, corners, label: str) -> Image.Image:
+# status → (banner colour, label suffix); "ok" = hand-verified corners already in screens.json
+_BANNER = {
+    "ok": ((255, 230, 0), ""),
+    "AUTO — VERIFY": ((255, 150, 0), "  AUTO - VERIFY IN CALIBRATE"),  # ASCII: default PIL font lacks the em dash
+    "NEEDS CALIBRATION": ((255, 80, 80), "  NEEDS CALIBRATION"),
+}
+
+
+def _check_tile(img: Image.Image, corners, label: str, status: str) -> Image.Image:
     thumb = img.copy()
     thumb.thumbnail((600, 600))
     w, h = thumb.size
@@ -47,8 +56,9 @@ def _check_tile(img: Image.Image, corners, label: str) -> Image.Image:
     d = ImageDraw.Draw(tile)
     if corners:
         d.polygon([(x * w, y * h) for x, y in corners], outline=(255, 0, 0), width=2)
-    d.rectangle([0, 0, 300, 22], fill=(255, 230, 0) if corners else (255, 80, 80))
-    d.text((4, 4), label + ("" if corners else "  NEEDS CALIBRATION"), fill=(0, 0, 0))
+    colour, suffix = _BANNER[status]
+    d.rectangle([0, 0, 300, 22], fill=colour)
+    d.text((4, 4), label + suffix, fill=(0, 0, 0))
     return tile
 
 
@@ -87,12 +97,20 @@ def main():
         }
         data = merge_scene(data, entry, force=force)
         final = next(s for s in data["scenes"] if s["id"] == sid)["corners"]
-        print(f"{sid:16s} {'ok' if final else 'NEEDS CALIBRATION'}")
-        tiles.append(_check_tile(img, final, sid))
+        if not final:
+            status = "NEEDS CALIBRATION"
+        elif have and not force:
+            status = "ok"
+        else:
+            status = "AUTO — VERIFY"  # detected this run: unreliable until checked
+        print(f"{sid:16s} {status}")
+        tiles.append(_check_tile(img, final, sid, status))
     save_scenes(SCENES_JSON, data)
     _contact_sheet(tiles)
     total = sum(p.stat().st_size for p in OUT_IMAGES.glob("*.*"))
     print(f"images/scenes total: {total / 1e6:.1f} MB  ·  check sheet: {CHECK.relative_to(ROOT)}")
+    if total > BUDGET:
+        print("WARNING: images/scenes exceeds 15 MB budget — see tools/README.md")
 
 
 if __name__ == "__main__":
