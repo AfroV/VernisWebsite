@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "fjord-study",
+      "title": "Fjord study",
+      "artist": "Vernis sample",
+      "type": "image",
+      "src": "images/library/fjord-study.jpg"
+    },
+    {
+      "id": "night-signal",
+      "title": "Night signal",
+      "artist": "Vernis sample",
+      "type": "image",
+      "src": "images/library/night-signal.jpg"
+    },
+    {
+      "id": "tide",
+      "title": "Tide (animated)",
+      "artist": "Vernis sample",
+      "type": "video",
+      "src": "images/library/tide.mp4",
+      "poster": "images/library/tide-poster.jpg"
+    },
+    {
+      "id": "brass-grid",
+      "title": "Brass grid",
+      "artist": "Vernis sample",
+      "type": "image",
+      "src": "images/library/brass-grid.jpg"
+    },
+    {
+      "id": "vernis-claim",
+      "title": "Vernis edition token",
+      "artist": "Vernis",
+      "type": "image",
+      "src": "images/library/vernis-claim.jpg"
+    }
+  ]
+}
