@@ -18,6 +18,17 @@
   --gutter: clamp(16px, 4vw, 56px);
   --measure: 36rem;
   --radius: 3px;
+  --radius-photo: 10px;
+  /* Layered, low-opacity shadows: a tight contact shadow plus a wide soft one. */
+  --shadow-photo:
+    0 1px 1px rgba(30, 35, 39, 0.05),
+    0 4px 10px -2px rgba(30, 35, 39, 0.08),
+    0 18px 36px -12px rgba(30, 35, 39, 0.22),
+    0 42px 80px -32px rgba(30, 35, 39, 0.28);
+  --shadow-photo-dark:
+    0 1px 1px rgba(0, 0, 0, 0.2),
+    0 8px 20px -6px rgba(0, 0, 0, 0.35),
+    0 36px 72px -24px rgba(0, 0, 0, 0.55);
 }
 
 *,
@@ -188,7 +199,7 @@ main > .hero { padding: 0; }
 .object__copy { grid-column: 1 / span 5; position: sticky; top: 110px; }
 .object__copy h2 { margin-bottom: 1.5rem; }
 .object__photo { margin: 0; }
-.object__photo img { width: 100%; height: auto; border-radius: var(--radius); }
+.object__photo img { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
 .object__photo figcaption { font-size: 0.875rem; color: var(--ink-soft); margin-top: 0.6rem; }
 .object__photo--a { grid-column: 7 / span 3; margin-top: 18vh; }
 .object__photo--b { grid-column: 10 / span 3; }
@@ -211,7 +222,8 @@ main > .hero { padding: 0; }
   align-items: start;
 }
 .viewer__stage {
-  border-radius: var(--radius); background: #2a3035;
+  border-radius: var(--radius-photo); background: #2a3035;
+  box-shadow: var(--shadow-photo-dark);
   width: min(100%, calc(78svh * 0.75)); justify-self: center;
 }
 .viewer__stage.is-wide { width: min(100%, calc(78svh * 1.333)); }
@@ -258,8 +270,11 @@ main > .hero { padding: 0; }
 
 /* Editions */
 .editions__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
-.edition { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.75rem; align-items: start; }
-.edition__photo { width: 100%; height: auto; border-radius: var(--radius); }
+.edition { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.75rem; align-items: stretch; }
+.edition__photo { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+/* Column layout so the buy button sits at the bottom of every card, level across the row. */
+.edition__body { display: flex; flex-direction: column; }
+.edition__cta { margin-top: auto; align-self: flex-start; }
 .edition h3 { font: 400 2rem/1.1 var(--serif); }
 .edition__price { font: 400 2.5rem/1 var(--serif); color: var(--brass-deep); margin: 0.5rem 0 1.25rem; }
 .edition__list { margin: 0 0 1.75rem; padding: 0; list-style: none; }
