@@ -3,6 +3,9 @@
  * Navigation, the live hero, and the "see it with your own art" viewer.
  */
 import { attachWarp } from './screen-warp.js';
+import { initSale } from './sale.js';
+import { initWaitlist } from './waitlist.js';
+import { track } from './analytics.js';
 
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const HERO_INTERVAL = 7000;
@@ -30,11 +33,14 @@ document.addEventListener('keydown', (e) => {
   if (e.key === 'Escape' && links.classList.contains('is-open')) { setMenu(false); toggle.focus(); }
 });
 
-// Edition note: only show a remaining count when a real number is set in the HTML.
-const edition = document.getElementById('edition-note');
-if (edition?.dataset.remaining) {
-  edition.firstChild.textContent = `Signed edition of ${edition.dataset.size}, ${edition.dataset.remaining} remaining. `;
-}
+// Count clicks that go to checkout (not the ones redirected to the waitlist).
+document.addEventListener('click', (e) => {
+  const buy = e.target.closest('[data-buy]');
+  if (buy && buy.getAttribute('href')?.startsWith('https://buy.stripe.com/')) {
+    track('Checkout click', { model: buy.dataset.buy });
+  }
+});
+initWaitlist({ onSuccess: () => track('Waitlist signup') });
 
 // A file dropped outside the drop targets must not navigate away from the page.
 for (const type of ['dragover', 'drop']) document.addEventListener(type, (e) => e.preventDefault());
@@ -113,7 +119,14 @@ async function loadJSON(path) {
   }
 }
 
-const [screens, library] = await Promise.all([loadJSON('data/screens.json'), loadJSON('data/library.json')]);
+const [screens, library, sale] = await Promise.all([
+  loadJSON('data/screens.json'),
+  loadJSON('data/library.json'),
+  loadJSON('data/sale.json')
+]);
+// Without sale data, leave the buttons as written in the HTML (Stripe shows its own message
+// when a link is deactivated), rather than hiding checkout during an open wave.
+if (sale) initSale(sale);
 const scenes = (screens?.scenes || []).filter((s) => s.corners);
 const sceneById = Object.fromEntries(scenes.map((s) => [s.id, s]));
 const pieces = library?.items || [];
@@ -297,6 +310,7 @@ function initViewer() {
     userUrl = URL.createObjectURL(isUntypedSvg ? new Blob([file], { type: 'image/svg+xml' }) : file);
     lastFileType = kind;
     art = { kind: 'file', type: lastFileType };
+    track('Tried own art', { kind });
     renderLibrary();
     render();
   }

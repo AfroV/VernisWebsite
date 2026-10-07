@@ -32,6 +32,9 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23a9813f' width='100' height='100' rx='18'/%3E%3Crect x='22' y='22' width='56' height='56' fill='%231e2327'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="css/site.css" />
+    <!-- Plausible: cookieless visitor counts. Needs a Plausible site for vernis.art to record anything. -->
+    <script defer data-domain="vernis.art" src="https://plausible.io/js/script.js"></script>
+    <script>window.plausible = window.plausible || function () { (window.plausible.q = window.plausible.q || []).push(arguments); };</script>
   </head>
   <body>
     <a class="skip" href="#main">Skip to content</a>
@@ -57,17 +60,17 @@
       <!-- Hero: the real photo with live art on the screen -->
       <section class="hero">
         <div class="hero__text">
-          <h1 class="hero__title">A handmade metal frame for digital art you actually own.</h1>
+          <h1 class="hero__title">A handmade brass frame for digital art you actually own.</h1>
           <p class="hero__lede">
-            Made in Norway in signed editions. Your art lives on the frame itself, so there's no app,
+            Made in Norway and signed by hand. Your art lives on the frame itself, so there's no app,
             no subscription and no platform that can take it away.
           </p>
           <div class="hero__actions">
-            <a href="#editions" class="btn">Reserve yours, from €600</a>
+            <a href="#editions" class="btn" data-buy="hero">Reserve yours, from €600</a>
             <a href="#try" class="link">See it with your own art</a>
           </div>
-          <!-- [VERIFY] edition size. Set data-remaining to the real number to show "N remaining". -->
-          <p class="hero__edition" id="edition-note" data-size="25" data-remaining="">Signed edition of 25. <span>Ships as a kit that goes together in minutes.</span></p>
+          <!-- Filled in from data/sale.json by js/sale.js -->
+          <p class="hero__edition"><span data-sale-note>Wave 2 is made to order in a short sales window.</span> <span>Ships as a kit that goes together in minutes.</span></p>
         </div>
         <figure class="hero__stage scene" data-scene="oslo-view-19" data-rotate="true">
           <picture>
@@ -167,55 +170,61 @@
         </div>
       </section>
 
-      <!-- Editions -->
+      <!-- Editions: two models, sold in a time-limited wave -->
       <section class="editions" id="editions" aria-labelledby="editions-title">
         <div class="section-head">
-          <h2 id="editions-title">Editions</h2>
-          <p>Priced in euros and paid by card at checkout. Each frame is numbered and signed.</p>
+          <h2 id="editions-title">Two frames, one wave</h2>
+          <p>
+            Both are cased in brass, signed and numbered. Wave 2 is open for a short window, and we
+            build exactly what's ordered. Priced in euros and paid by card.
+          </p>
+          <p class="sale-status" data-sale-note role="status"></p>
         </div>
 
         <div class="editions__grid">
           <article class="edition">
             <picture>
-              <source type="image/webp" srcset="images/scenes/canal-23-800.webp" />
-              <img class="edition__photo" src="images/scenes/canal-23-800.jpg" width="800" height="1067" loading="lazy" alt="Vernis metal frame on a bench by a canal in low sun" />
+              <source type="image/webp" srcset="images/scenes/angle-34-800.webp" />
+              <img class="edition__photo" src="images/scenes/angle-34-800.jpg" width="800" height="1067" loading="lazy" alt="Side view of the Vernis brass frame, with ventilation and the cable at the side" />
             </picture>
             <div class="edition__body">
-              <h3>Metal Edition</h3>
+              <h3>Vernis Side</h3>
               <p class="edition__price">€600</p>
               <ul class="edition__list">
-                <li>Handmade metal frame kit with a 4-inch touch screen</li>
-                <li>Your art stored on the frame, 128 GB</li>
-                <li>Signed and numbered, with a matching digital certificate (NFT)</li>
+                <li>Brass case with ventilation, cable out at the side</li>
+                <li>4-inch touch screen, your art stored on the frame (128 GB)</li>
+                <li>Signed and numbered</li>
                 <li>Power supply with the plug for your country</li>
               </ul>
-              <!-- TODO: replace with the live Stripe Payment Link for the €600 Standard edition -->
-              <a href="https://buy.stripe.com/PLACEHOLDER_STANDARD_600" class="btn edition__cta" target="_blank" rel="noopener">Reserve the Metal Edition</a>
+              <!-- TODO: live Stripe Payment Link for Vernis Side (€600) -->
+              <a href="https://buy.stripe.com/PLACEHOLDER_SIDE_600" class="btn edition__cta" data-buy="side" target="_blank" rel="noopener">Reserve Vernis Side</a>
             </div>
           </article>
 
           <article class="edition">
             <picture>
-              <source type="image/webp" srcset="images/scenes/plant-art-29-800.webp" />
-              <img class="edition__photo" src="images/scenes/plant-art-29-800.jpg" width="800" height="1067" loading="lazy" alt="Vernis frame displaying an artist's work next to a green plant" />
+              <!-- [ASSET NEEDED] a photo of the larger rear-cable model -->
+              <source type="image/webp" srcset="images/scenes/oslo-view-20-800.webp" />
+              <img class="edition__photo" src="images/scenes/oslo-view-20-800.jpg" width="800" height="1067" loading="lazy" alt="Vernis brass frame on a table overlooking the Oslo fjord" />
             </picture>
             <div class="edition__body">
-              <h3>Artist Edition</h3>
-              <p class="edition__price">€700</p>
+              <h3>Vernis Rear</h3>
+              <p class="edition__price">€750</p>
               <ul class="edition__list">
-                <li>Everything in the Metal Edition</li>
-                <li>A numbered work made for the frame by a featured artist</li>
-                <li>Part of every sale is paid to the artist</li>
+                <li>A slightly larger brass case with a clean back</li>
+                <li>Cable out at the rear, so nothing shows from the front or sides</li>
+                <li>4-inch touch screen, your art stored on the frame (128 GB)</li>
+                <li>Signed and numbered, with the plug for your country</li>
               </ul>
-              <!-- TODO: replace with the live Stripe Payment Link for the €700 Artist-Collab edition -->
-              <a href="https://buy.stripe.com/PLACEHOLDER_ARTIST_700" class="btn edition__cta" target="_blank" rel="noopener">Reserve the Artist Edition</a>
+              <!-- TODO: live Stripe Payment Link for Vernis Rear (€750) -->
+              <a href="https://buy.stripe.com/PLACEHOLDER_REAR_750" class="btn edition__cta" data-buy="rear" target="_blank" rel="noopener">Reserve Vernis Rear</a>
             </div>
           </article>
         </div>
-        <!-- [VERIFY] shipping/duties policy before launch -->
+        <!-- [VERIFY] shipping zones and delivery time before launch -->
         <p class="editions__note">
-          Shipping is added at checkout. Outside Norway, your country may charge import VAT or duty
-          on delivery.
+          Shipping is added at checkout. Outside Norway, your country may charge import VAT, duty
+          or a handling fee when the parcel arrives; that is paid to the carrier, not to us.
         </p>
       </section>
 
@@ -224,14 +233,14 @@
         <h2 id="steps-title">From checkout to your shelf</h2>
         <ol class="steps__list">
           <li>
-            <h3>Reserve and pay</h3>
-            <p>Pay in euros by card. Checkout asks for your shipping address.</p>
+            <h3>Reserve while the wave is open</h3>
+            <p>Pay in euros by card. Checkout asks for your shipping address and plug type.</p>
           </li>
           <li>
-            <h3>We sign and ship</h3>
+            <h3>We build your wave</h3>
             <p>
-              Your frame kit is numbered and sent with the right plug for your country. Your
-              certificate is delivered to you as well.
+              When the window closes we order parts for exactly the frames reserved, then sign,
+              number and ship them. <span data-ship-note></span>
             </p>
           </li>
           <li>
@@ -239,6 +248,24 @@
             <p>Assembly takes a few minutes with the guide, no soldering. Then pick what it shows and leave it be.</p>
           </li>
         </ol>
+      </section>
+
+      <!-- Waitlist (Mailchimp) -->
+      <section class="waitlist" id="waitlist" aria-labelledby="waitlist-title">
+        <h2 id="waitlist-title">Hear when the next wave opens</h2>
+        <p>One email when a wave opens and one before it closes. Nothing else.</p>
+        <!-- TODO: paste the form action URL from Mailchimp (Audience → Signup forms → Embedded form) -->
+        <form class="waitlist__form" id="waitlist-form" action="https://PLACEHOLDER.list-manage.com/subscribe/post?u=PLACEHOLDER&amp;id=PLACEHOLDER" method="post" target="_blank" novalidate>
+          <label for="waitlist-email">Email</label>
+          <div class="waitlist__row">
+            <input type="email" id="waitlist-email" name="EMAIL" autocomplete="email" required />
+            <button type="submit" class="btn">Join the list</button>
+          </div>
+          <!-- Mailchimp bot trap: must stay empty and off-screen -->
+          <div class="visually-hidden" aria-hidden="true"><input type="text" name="b_PLACEHOLDER_PLACEHOLDER" tabindex="-1" value="" /></div>
+          <p class="waitlist__fine">You can unsubscribe from any email. See the <a href="privacy.html">privacy policy</a>.</p>
+          <p class="waitlist__status" id="waitlist-status" role="status"></p>
+        </form>
       </section>
 
       <!-- Ownership story: technical detail is welcome here, below the fold -->
@@ -290,6 +317,21 @@
           </p>
         </details>
         <details>
+          <summary>Which one should I choose?</summary>
+          <p>
+            Vernis Side is the original size, with ventilation and the cable leaving from the side.
+            Vernis Rear is a little larger and routes the cable out the back, so it looks clean from
+            every angle you'd normally see it.
+          </p>
+        </details>
+        <details>
+          <summary>Why a sales window?</summary>
+          <p>
+            We build in waves. Collecting orders first lets us buy parts at a fair price and make
+            exactly as many frames as people want, with nothing left over.
+          </p>
+        </details>
+        <details>
           <summary>Do I need crypto or a wallet?</summary>
           <p>
             No. You pay in euros by card. If you collect NFTs, the frame can show the works you own
@@ -318,7 +360,7 @@
 
       <section class="closing" aria-labelledby="closing-title">
         <h2 id="closing-title">A small frame for the art you'll keep.</h2>
-        <a href="#editions" class="btn">Reserve yours, from €600</a>
+        <a href="#editions" class="btn" data-buy="closing">Reserve yours, from €600</a>
       </section>
     </main>
 

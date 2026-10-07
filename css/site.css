@@ -349,3 +349,27 @@ main > .diy { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7
 .footer__links a:hover { color: var(--paper); text-decoration: underline; }
 .footer__copy { grid-column: 1 / -1; margin: 0; }
 @media (max-width: 640px) { .footer { grid-template-columns: 1fr; } }
+
+/* Sales window status */
+.sale-status { color: var(--brass-deep); font-weight: 500; }
+.sale-status:empty { display: none; }
+
+/* Waitlist */
+.waitlist { background: var(--paper); border-top: 1px solid var(--line); }
+.waitlist h2 { margin-bottom: 1rem; }
+.waitlist > p { color: var(--ink-soft); }
+.waitlist__form { margin-top: 2rem; max-width: 34rem; }
+.waitlist__form label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+.waitlist__row { display: flex; gap: 8px; flex-wrap: wrap; }
+.waitlist__row input {
+  flex: 1 1 16rem; min-width: 0; padding: 0.85rem 1rem;
+  font: 400 1rem/1.2 var(--sans); color: var(--ink);
+  background: #fff; border: 1px solid var(--line); border-radius: var(--radius);
+}
+.waitlist__fine { font-size: 0.875rem; color: var(--ink-soft); margin-top: 0.75rem; }
+.waitlist__status { font-weight: 500; color: var(--fjord); min-height: 1.5em; margin: 0.5rem 0 0; }
+
+/* Thank-you page (Stripe redirect) */
+.thanks { padding: 140px var(--gutter) 96px; max-width: 46rem; }
+.thanks h1 { font: 400 clamp(2.4rem, 5vw, 3.75rem)/1.02 var(--serif); margin-bottom: 1.5rem; }
+.thanks p { color: var(--ink-soft); }
