@@ -1,0 +1,67 @@
+{
+  "version": 1,
+  "_note": "XCOPY works are CC0; used with the artist's blessing. [VERIFY titles]",
+  "items": [
+    {
+      "id": "xcopy-right-click-save-as-guy",
+      "title": "Right-click and Save As guy",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "video",
+      "src": "images/library/xcopy-right-click-save-as-guy.mp4",
+      "poster": "images/library/xcopy-right-click-save-as-guy-poster.jpg"
+    },
+    {
+      "id": "xcopy-last-selfie",
+      "title": "Last Selfie",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "video",
+      "src": "images/library/xcopy-last-selfie.mp4",
+      "poster": "images/library/xcopy-last-selfie-poster.jpg"
+    },
+    {
+      "id": "xcopy-how-does-that-make-you-feel",
+      "title": "And how does that make you feel?",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "image",
+      "src": "images/library/xcopy-how-does-that-make-you-feel.jpg"
+    },
+    {
+      "id": "xcopy-dont-panic",
+      "title": "Don't Panic",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "video",
+      "src": "images/library/xcopy-dont-panic.mp4",
+      "poster": "images/library/xcopy-dont-panic-poster.jpg"
+    },
+    {
+      "id": "xcopy-death-of-cash",
+      "title": "Death of Cash",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "video",
+      "src": "images/library/xcopy-death-of-cash.mp4",
+      "poster": "images/library/xcopy-death-of-cash-poster.jpg"
+    },
+    {
+      "id": "xcopy-bloodrun",
+      "title": "Bloodrun",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "image",
+      "src": "images/library/xcopy-bloodrun.jpg"
+    },
+    {
+      "id": "xcopy-departed",
+      "title": "Departed",
+      "artist": "XCOPY",
+      "license": "CC0",
+      "type": "video",
+      "src": "images/library/xcopy-departed.mp4",
+      "poster": "images/library/xcopy-departed-poster.jpg"
+    }
+  ]
+}

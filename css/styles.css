@@ -593,6 +593,52 @@ section {
     flex-shrink: 0;
 }
 
+.product-card__cta {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.product-card__fineprint {
+    color: var(--color-light-gray);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    margin-top: 1rem;
+}
+
+/* ---------------------------------------------
+   DIY Section
+   --------------------------------------------- */
+.diy {
+    background: var(--color-charcoal);
+}
+
+.diy__inner {
+    max-width: 680px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.diy__eyebrow {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.diy__title {
+    margin-bottom: 1rem;
+}
+
+.diy__text {
+    color: var(--color-light-gray);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
 /* ---------------------------------------------
    Gallery Section
    --------------------------------------------- */

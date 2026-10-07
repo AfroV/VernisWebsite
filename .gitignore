@@ -1,0 +1,26 @@
+# Secrets — NEVER commit these (MoonPay/hel.io keys, webhook secrets, tokens)
+.env
+.env.*
+*.local
+secrets/
+*.key
+*.pem
+
+# Dependencies / build (in case payment integration adds tooling)
+node_modules/
+dist/
+.cache/
+
+# OS / editor junk
+.DS_Store
+Thumbs.db
+*.swp
+.vscode/
+.idea/
+
+# Photo originals (large, contain GPS EXIF) + local tooling output
+images/originals/
+tools/.venv/
+tools/photos/out/
+.playwright-mcp/
+__pycache__/

@@ -1,0 +1,19 @@
+{
+  "sourceDir": "images/originals/kunstramme-2026-09-26",
+  "scenes": [
+    {"source": "image00019.jpeg", "id": "oslo-view-19", "originalArt": false, "tags": ["hero"], "alt": "Vernis frame on a table in front of a wide view over Oslo"},
+    {"source": "image00020.jpeg", "id": "oslo-view-20", "originalArt": false, "tags": ["hero"], "alt": "Vernis frame on a table overlooking the Oslo fjord"},
+    {"source": "image00021.jpeg", "id": "oslo-view-21", "originalArt": false, "tags": ["hero"], "alt": "Vernis frame by a window above the Oslo Opera House"},
+    {"source": "image00009.jpeg", "id": "shelf-wide-09", "originalArt": false, "tags": ["wide", "lifestyle"], "alt": "Vernis frame on an oak shelf between a green glass vase and a candle"},
+    {"source": "image00001.jpeg", "id": "shelf-01", "originalArt": false, "tags": ["lifestyle"], "alt": "Vernis frame on an oak shelf against a concrete wall"},
+    {"source": "image00012.jpeg", "id": "shelf-12", "originalArt": false, "tags": ["lifestyle"], "alt": "Vernis frame beside a green glass vase on a shelf"},
+    {"source": "image00023.jpeg", "id": "canal-23", "originalArt": false, "tags": ["lifestyle"], "alt": "Vernis frame on a bench by a canal between apartment buildings"},
+    {"source": "image00024.jpeg", "id": "canal-24", "originalArt": false, "tags": ["lifestyle"], "alt": "Vernis frame in low sun by a city canal"},
+    {"source": "image00033.jpeg", "id": "angle-33", "originalArt": false, "tags": ["product"], "alt": "Vernis metal frame seen from an angle on a wooden surface"},
+    {"source": "image00034.jpeg", "id": "angle-34", "originalArt": false, "tags": ["product"], "alt": "Side view of the Vernis metal frame showing its depth and ports"},
+    {"source": "image00028.jpeg", "id": "grass-art-28", "originalArt": true, "tags": ["lifestyle"], "alt": "Vernis frame displaying artwork among grass by a canal"},
+    {"source": "image00029.jpeg", "id": "plant-art-29", "originalArt": true, "tags": ["lifestyle"], "alt": "Vernis frame displaying artwork next to a green plant"},
+    {"source": "image00031.jpeg", "id": "canal-art-31", "originalArt": true, "tags": ["lifestyle"], "alt": "Vernis frame displaying colourful artwork by a canal"},
+    {"source": "image00032.jpeg", "id": "canal-art-32", "originalArt": true, "tags": ["lifestyle"], "alt": "Close view of Vernis frame displaying colourful artwork"}
+  ]
+}

@@ -1,0 +1,412 @@
+{
+  "version": 1,
+  "scenes": [
+    {
+      "id": "oslo-view-19",
+      "src": "images/scenes/oslo-view-19",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3556,
+          0.6533
+        ],
+        [
+          0.5994,
+          0.6529
+        ],
+        [
+          0.5989,
+          0.8267
+        ],
+        [
+          0.3561,
+          0.8267
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "hero"
+      ],
+      "alt": "Vernis frame on a table in front of a wide view over Oslo"
+    },
+    {
+      "id": "oslo-view-20",
+      "src": "images/scenes/oslo-view-20",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3289,
+          0.6554
+        ],
+        [
+          0.5956,
+          0.6542
+        ],
+        [
+          0.5944,
+          0.8446
+        ],
+        [
+          0.3306,
+          0.845
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "hero"
+      ],
+      "alt": "Vernis frame on a table overlooking the Oslo fjord"
+    },
+    {
+      "id": "oslo-view-21",
+      "src": "images/scenes/oslo-view-21",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3467,
+          0.6492
+        ],
+        [
+          0.5822,
+          0.6508
+        ],
+        [
+          0.5789,
+          0.8167
+        ],
+        [
+          0.3461,
+          0.8167
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "hero"
+      ],
+      "alt": "Vernis frame by a window above the Oslo Opera House"
+    },
+    {
+      "id": "shelf-wide-09",
+      "src": "images/scenes/shelf-wide-09",
+      "w": 5712,
+      "h": 4284,
+      "corners": [
+        [
+          0.4417,
+          0.5039
+        ],
+        [
+          0.5167,
+          0.5031
+        ],
+        [
+          0.5165,
+          0.6061
+        ],
+        [
+          0.4417,
+          0.6056
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "wide",
+        "lifestyle"
+      ],
+      "alt": "Vernis frame on an oak shelf between a green glass vase and a candle"
+    },
+    {
+      "id": "shelf-01",
+      "src": "images/scenes/shelf-01",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.4589,
+          0.4775
+        ],
+        [
+          0.6378,
+          0.4775
+        ],
+        [
+          0.6372,
+          0.615
+        ],
+        [
+          0.4589,
+          0.6146
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame on an oak shelf against a concrete wall"
+    },
+    {
+      "id": "shelf-12",
+      "src": "images/scenes/shelf-12",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.1533,
+          0.4996
+        ],
+        [
+          0.2856,
+          0.5
+        ],
+        [
+          0.285,
+          0.595
+        ],
+        [
+          0.15,
+          0.5954
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame beside a green glass vase on a shelf"
+    },
+    {
+      "id": "canal-23",
+      "src": "images/scenes/canal-23",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3644,
+          0.5829
+        ],
+        [
+          0.6561,
+          0.5821
+        ],
+        [
+          0.6561,
+          0.8017
+        ],
+        [
+          0.3644,
+          0.8067
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame on a bench by a canal between apartment buildings"
+    },
+    {
+      "id": "canal-24",
+      "src": "images/scenes/canal-24",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3406,
+          0.5875
+        ],
+        [
+          0.6322,
+          0.5867
+        ],
+        [
+          0.6322,
+          0.8075
+        ],
+        [
+          0.3372,
+          0.8158
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame in low sun by a city canal"
+    },
+    {
+      "id": "angle-33",
+      "src": "images/scenes/angle-33",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.4206,
+          0.5604
+        ],
+        [
+          0.7367,
+          0.5833
+        ],
+        [
+          0.7311,
+          0.8717
+        ],
+        [
+          0.4206,
+          0.8025
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "product"
+      ],
+      "alt": "Vernis metal frame seen from an angle on a wooden surface"
+    },
+    {
+      "id": "angle-34",
+      "src": "images/scenes/angle-34",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.4228,
+          0.5267
+        ],
+        [
+          0.6822,
+          0.5542
+        ],
+        [
+          0.6733,
+          0.8571
+        ],
+        [
+          0.4228,
+          0.7612
+        ]
+      ],
+      "originalArt": false,
+      "tags": [
+        "product"
+      ],
+      "alt": "Side view of the Vernis metal frame showing its depth and ports"
+    },
+    {
+      "id": "grass-art-28",
+      "src": "images/scenes/grass-art-28",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3506,
+          0.5533
+        ],
+        [
+          0.6678,
+          0.5537
+        ],
+        [
+          0.6689,
+          0.7908
+        ],
+        [
+          0.35,
+          0.7908
+        ]
+      ],
+      "originalArt": true,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame displaying artwork among grass by a canal"
+    },
+    {
+      "id": "plant-art-29",
+      "src": "images/scenes/plant-art-29",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3311,
+          0.5725
+        ],
+        [
+          0.6544,
+          0.5708
+        ],
+        [
+          0.6544,
+          0.8104
+        ],
+        [
+          0.3278,
+          0.8233
+        ]
+      ],
+      "originalArt": true,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame displaying artwork next to a green plant"
+    },
+    {
+      "id": "canal-art-31",
+      "src": "images/scenes/canal-art-31",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3528,
+          0.6562
+        ],
+        [
+          0.6389,
+          0.6579
+        ],
+        [
+          0.6367,
+          0.8604
+        ],
+        [
+          0.355,
+          0.8575
+        ]
+      ],
+      "originalArt": true,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Vernis frame displaying colourful artwork by a canal"
+    },
+    {
+      "id": "canal-art-32",
+      "src": "images/scenes/canal-art-32",
+      "w": 4284,
+      "h": 5712,
+      "corners": [
+        [
+          0.3367,
+          0.63
+        ],
+        [
+          0.625,
+          0.6258
+        ],
+        [
+          0.6244,
+          0.8383
+        ],
+        [
+          0.3394,
+          0.8417
+        ]
+      ],
+      "originalArt": true,
+      "tags": [
+        "lifestyle"
+      ],
+      "alt": "Close view of Vernis frame displaying colourful artwork"
+    }
+  ]
+}
