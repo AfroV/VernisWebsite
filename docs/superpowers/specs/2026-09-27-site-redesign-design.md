@@ -17,8 +17,8 @@ let visitors see their own art on the frame; keep EUR pricing and the existing S
 - Viewer: 14 scenes from `data/screens.json`, pieces from `data/library.json`, visitor files via
   file input or drag-and-drop, read with object URLs — nothing is uploaded. Fill / whole-piece toggle.
   Scenes with real art offer "Original photo".
-- Library: `images/library/` + `data/library.json`. Seeded with generated samples labelled
-  "Vernis sample" and the existing Vernis token art. Third-party NFT art from the artboxv3 CSV library
+- Library: `images/library/` + `data/library.json`. Seeded with XCOPY works (CC0, used with the artist's blessing; replaced the generated samples labelled
+  "Vernis sample"). Other third-party NFT art from the artboxv3 CSV library
   is NOT used (needs artist permission).
 - Old PETG showcase videos and prototype photos removed from the page (files kept).
 - Copy follows the kit model (buyer assembles in minutes) and positioning rules: no IPFS/NFT above the

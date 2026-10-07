@@ -110,7 +110,8 @@ function clearArt(layer) {
 // ---------------------------------------------
 async function loadJSON(path) {
   try {
-    const res = await fetch(path);
+    // Revalidate every time: sale dates and the library change without a code deploy.
+    const res = await fetch(path, { cache: 'no-cache' });
     if (!res.ok) throw new Error(`${path}: ${res.status}`);
     return await res.json();
   } catch (err) {
@@ -152,7 +153,7 @@ function initHero() {
     const item = pieces[i % pieces.length];
     i += 1;
     try {
-      if (await showArt(layer, createArt(item))) caption.textContent = `On screen: ${item.title}, ${item.artist}`;
+      if (await showArt(layer, createArt(item))) caption.textContent = `On screen: ${item.title} by ${item.artist}${item.license ? ` (${item.license})` : ''}`;
     } catch {
       // Skip a piece that fails to load; the next tick tries the following one.
     }
