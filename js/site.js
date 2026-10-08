@@ -48,28 +48,60 @@ for (const type of ['dragover', 'drop']) document.addEventListener(type, (e) => 
 // ---------------------------------------------
 // Art elements
 // ---------------------------------------------
+/**
+ * The piece as the frame shows it: the whole work, never cropped, centred on the square
+ * screen, with a blurred snapshot of the same work filling the space around it.
+ */
 function createArt({ type, src, poster }) {
+  const piece = document.createElement('div');
+  piece.className = 'art-piece';
+  const backdrop = document.createElement('canvas');
+  backdrop.className = 'art__backdrop';
+  backdrop.setAttribute('aria-hidden', 'true');
+
+  let main;
   if (type === 'video') {
-    const v = document.createElement('video');
-    Object.assign(v, { src, muted: true, loop: true, playsInline: true, preload: 'auto', autoplay: !reduceMotion });
-    if (poster) v.poster = poster;
-    v.setAttribute('muted', '');
-    v.setAttribute('playsinline', '');
-    return v;
+    main = document.createElement('video');
+    Object.assign(main, { src, muted: true, loop: true, playsInline: true, preload: 'auto', autoplay: !reduceMotion });
+    if (poster) main.poster = poster;
+    main.setAttribute('muted', '');
+    main.setAttribute('playsinline', '');
+    main.addEventListener('loadeddata', () => snapshot(main, backdrop), { once: true });
+  } else {
+    main = document.createElement('img');
+    main.alt = '';
+    main.decoding = 'async';
+    main.src = src;
+    main.addEventListener('load', () => snapshot(main, backdrop), { once: true });
   }
-  const img = document.createElement('img');
-  img.alt = '';
-  img.decoding = 'async';
-  img.src = src;
-  return img;
+  main.className = 'art__main';
+  piece.append(backdrop, main);
+  return piece;
 }
 
-function whenReady(el) {
+// A tiny still of the current frame; CSS scales and blurs it, so a few pixels are plenty.
+function snapshot(media, canvas) {
+  const w = media.videoWidth || media.naturalWidth;
+  const h = media.videoHeight || media.naturalHeight;
+  if (!w || !h) return;
+  canvas.width = 48;
+  canvas.height = Math.max(1, Math.round((48 * h) / w));
+  try {
+    canvas.getContext('2d').drawImage(media, 0, 0, canvas.width, canvas.height);
+  } catch {
+    // Leave the plain dark backdrop if the frame can't be drawn.
+  }
+}
+
+const mainOf = (piece) => piece.querySelector('.art__main');
+
+function whenReady(piece) {
+  const el = mainOf(piece);
   return new Promise((resolve, reject) => {
     // loadedmetadata is enough to size a video; iOS may not load frames before playback.
     const ok = el.tagName === 'VIDEO' ? 'loadedmetadata' : 'load';
-    if (el.tagName === 'IMG' && el.complete && el.naturalWidth) return resolve(el);
-    el.addEventListener(ok, () => resolve(el), { once: true });
+    if (el.tagName === 'IMG' && el.complete && el.naturalWidth) return resolve(piece);
+    el.addEventListener(ok, () => resolve(piece), { once: true });
     el.addEventListener('error', () => reject(new Error('unreadable')), { once: true });
   });
 }
@@ -93,7 +125,8 @@ async function showArt(layer, el) {
     throw err;
   }
   if (latest.get(layer) !== token) { el.remove(); return false; }
-  if (el.tagName === 'VIDEO' && !reduceMotion) el.play().catch(() => {});
+  const media = mainOf(el);
+  if (media.tagName === 'VIDEO' && !reduceMotion) media.play().catch(() => {});
   requestAnimationFrame(() => { el.style.opacity = '1'; });
   const old = [...layer.children].filter((c) => c !== el);
   setTimeout(() => old.forEach((c) => c.remove()), reduceMotion ? 0 : FADE_MS);
@@ -331,13 +364,6 @@ function initViewer() {
       useFile(e.dataTransfer.files[0]);
     });
   }
-
-  document.querySelectorAll('.viewer__fit [data-fit]').forEach((b) => {
-    b.addEventListener('click', () => {
-      layer.classList.toggle('fit-contain', b.dataset.fit === 'contain');
-      press(b.parentElement, b);
-    });
-  });
 
   selectScene(scene, sceneList.children[scenes.indexOf(scene)]);
 }
