@@ -178,6 +178,6 @@
     // ---------------------------------------------
     console.log('%c VERNIS ', 'background: #c9a54e; color: #0a0a0a; font-size: 24px; font-weight: bold; padding: 10px 20px;');
     console.log('%c Preserving Digital Art History ', 'color: #999; font-size: 12px;');
-    console.log('%c Interested in how we built this? We\'re hiring! hello@vernis.art ', 'color: #c9a54e; font-size: 11px;');
+    console.log('%c Curious how this was built? It is open source: github.com/AfroV ', 'color: #c9a54e; font-size: 11px;');
 
 })();

@@ -34,7 +34,7 @@
 
 Vernis is sold by 25.TIME AS, org.nr. 915 890 423, Norway.
 Address: **[ADDRESS — required before publishing]**.
-Email: afrovikingnft@gmail.com
+Email: av@vernis.art
 
 ## 2. What you buy
 
@@ -78,7 +78,7 @@ sign and ship them. The number of frames in a wave is not fixed in advance.
 
 You may cancel your purchase within 14 days of receiving the kit, without giving a reason.
 
-- Tell us by email at afrovikingnft@gmail.com (you may use the standard withdrawal form, but
+- Tell us by email at av@vernis.art (you may use the standard withdrawal form, but
   you don't have to).
 - Return the kit within 14 days after telling us. Return shipping is paid by you.
 - We refund the price and the original standard shipping within 14 days of receiving your

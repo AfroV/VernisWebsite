@@ -16,7 +16,7 @@
 ## 1. Who is responsible
 
 25.TIME AS, org.nr. 915 890 423, Norway, is the data controller.
-Address: **[ADDRESS]**. Email: afrovikingnft@gmail.com
+Address: **[ADDRESS]**. Email: av@vernis.art
 
 ## 2. What we collect and why
 
@@ -65,7 +65,7 @@ Stripe sets its own cookies on its checkout page, which is covered by Stripe's p
 ## 8. Your rights
 
 You can ask to see, correct, delete or move your data, object to processing, or withdraw consent
-for the waitlist at any time. Email afrovikingnft@gmail.com and we reply within 30 days. You can
+for the waitlist at any time. Email av@vernis.art and we reply within 30 days. You can
 also complain to Datatilsynet (datatilsynet.no).
 
 ## 9. Crypto wallets (optional)
