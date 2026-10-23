@@ -39,6 +39,7 @@ document.addEventListener('click', (e) => {
   if (buy && buy.getAttribute('href')?.startsWith('https://buy.stripe.com/')) {
     track('Checkout click', { model: buy.dataset.buy });
   }
+  if (e.target.closest('[data-waitlist-mail]')) track('Waitlist signup');
 });
 initWaitlist({ onSuccess: () => track('Waitlist signup') });
 
