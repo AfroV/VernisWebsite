@@ -279,7 +279,31 @@ main > .hero { padding: 0; }
 .edition__price { font: 400 2.5rem/1 var(--serif); color: var(--brass-deep); margin: 0.5rem 0 1.25rem; }
 .edition__list { margin: 0 0 1.75rem; padding: 0; list-style: none; }
 .edition__list li { padding: 0.55rem 0; border-top: 1px solid var(--line); font-size: 0.9375rem; }
-.editions__note { margin-top: 3rem; font-size: 0.9375rem; color: var(--ink-soft); }
+.editions__note { margin-top: 1rem; font-size: 0.9375rem; color: var(--ink-soft); }
+.editions__crypto { margin-top: 3rem; font-size: 0.9375rem; }
+.edition__ship { display: block; margin-top: 0.4rem; font: 400 0.9375rem/1.4 var(--sans); color: var(--ink-soft); }
+
+/* Shipping zone: a two-option switch above the cards */
+.zone {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem;
+  margin: 0 0 2.5rem; padding: 0; border: 0;
+}
+.zone__legend { float: left; padding: 0; font-size: 0.9375rem; color: var(--ink-soft); }
+.zone__option { position: relative; cursor: pointer; }
+.zone__option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.zone__option span {
+  display: inline-block; padding: 0.55rem 1rem; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 0.9375rem; transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.zone__option small { margin-left: 0.35rem; font-size: inherit; color: var(--ink-soft); }
+.zone__option:hover span { border-color: var(--ink); }
+.zone__option input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.zone__option input:checked + span small { color: inherit; opacity: 0.75; }
+.zone__option input:focus-visible + span { outline: 2px solid var(--fjord); outline-offset: 3px; }
+@media (max-width: 480px) {
+  .zone { gap: 0.5rem; }
+  .zone__legend { width: 100%; }
+}
 
 @media (max-width: 1100px) {
   .editions__grid { grid-template-columns: 1fr; gap: 4rem; }

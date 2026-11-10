@@ -177,6 +177,14 @@
           <p class="sale-status" data-sale-note role="status"></p>
         </div>
 
+        <!-- [VERIFY] shipping fees are placeholders until real Bring/DHL quotes are in.
+             They must match the Stripe shipping rates on the payment links below. -->
+        <fieldset class="zone">
+          <legend class="zone__legend">Shipping to</legend>
+          <label class="zone__option"><input type="radio" name="zone" value="europe" data-fee="30" checked /> <span>Europe <small>€30</small></span></label>
+          <label class="zone__option"><input type="radio" name="zone" value="world" data-fee="60" /> <span>Rest of world <small>€60</small></span></label>
+        </fieldset>
+
         <div class="editions__grid">
           <article class="edition">
             <picture>
@@ -185,15 +193,17 @@
             </picture>
             <div class="edition__body">
               <h3>Vernis Side</h3>
-              <p class="edition__price">€600</p>
+              <p class="edition__price">€600 <span class="edition__ship" data-ship-fee>+ €30 shipping in Europe</span></p>
               <ul class="edition__list">
                 <li>Brass case with ventilation, cable out at the side</li>
                 <li>4-inch touch screen, your art stored on the frame (128 GB)</li>
                 <li>Signed and numbered</li>
                 <li>Power supply with the plug for your country</li>
               </ul>
-              <!-- TODO: live Stripe Payment Link for Vernis Side (€600) -->
-              <a href="https://buy.stripe.com/PLACEHOLDER_SIDE_600" class="btn edition__cta" data-buy="side" target="_blank" rel="noopener">Reserve Vernis Side</a>
+              <!-- TEST-MODE Stripe links: swap for live links before launch -->
+              <a href="https://buy.stripe.com/test_4gM28sbeE3Ol8744rZ0VO01" class="btn edition__cta" data-buy="side"
+                data-link-europe="https://buy.stripe.com/test_4gM28sbeE3Ol8744rZ0VO01"
+                data-link-world="https://buy.stripe.com/test_aFa9AU4QgesZ5YW9Mj0VO02" target="_blank" rel="noopener">Reserve Vernis Side</a>
             </div>
           </article>
 
@@ -205,21 +215,28 @@
             </picture>
             <div class="edition__body">
               <h3>Vernis Rear</h3>
-              <p class="edition__price">€750</p>
+              <p class="edition__price">€750 <span class="edition__ship" data-ship-fee>+ €30 shipping in Europe</span></p>
               <ul class="edition__list">
                 <li>A slightly larger brass case with a clean back</li>
                 <li>Cable out at the rear, so nothing shows from the front or sides</li>
                 <li>4-inch touch screen, your art stored on the frame (128 GB)</li>
                 <li>Signed and numbered, with the plug for your country</li>
               </ul>
-              <!-- TODO: live Stripe Payment Link for Vernis Rear (€750) -->
-              <a href="https://buy.stripe.com/PLACEHOLDER_REAR_750" class="btn edition__cta" data-buy="rear" target="_blank" rel="noopener">Reserve Vernis Rear</a>
+              <!-- TEST-MODE Stripe links: swap for live links before launch -->
+              <a href="https://buy.stripe.com/test_7sY14o4QggB7afc4rZ0VO03" class="btn edition__cta" data-buy="rear"
+                data-link-europe="https://buy.stripe.com/test_7sY14o4QggB7afc4rZ0VO03"
+                data-link-world="https://buy.stripe.com/test_7sY4gAbeE4Sp0EC4rZ0VO04" target="_blank" rel="noopener">Reserve Vernis Rear</a>
             </div>
           </article>
         </div>
-        <!-- [VERIFY] shipping zones and delivery time before launch -->
+        <p class="editions__crypto">
+          Prefer to pay in crypto?
+          <a href="mailto:admin@25time.no?subject=Pay%20for%20Vernis%20in%20crypto&amp;body=Which%20frame%20(Side%20or%20Rear)%2C%20and%20which%20country%20should%20it%20ship%20to%3F">Email us</a>
+          and we'll send you a payment link for ETH or USDC.
+        </p>
+        <!-- [VERIFY] delivery times before launch -->
         <p class="editions__note">
-          Shipping is added at checkout. Outside Norway, your country may charge import VAT, duty
+          Shipping is tracked, with a fixed price for Europe and for the rest of the world. Outside Norway, your country may charge import VAT, duty
           or a handling fee when the parcel arrives; that is paid to the carrier, not to us.
         </p>
       </section>
@@ -230,7 +247,7 @@
         <ol class="steps__list">
           <li>
             <h3>Reserve while the wave is open</h3>
-            <p>Pay in euros by card. Checkout asks for your shipping address and plug type.</p>
+            <p>Pay in euros by card. Checkout asks for your shipping address, plug type and, if you have one, your Ethereum wallet.</p>
           </li>
           <li>
             <h3>We build your wave</h3>

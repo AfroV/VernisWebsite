@@ -4,6 +4,7 @@
  */
 import { attachWarp } from './screen-warp.js';
 import { initSale } from './sale.js';
+import { initCheckout } from './checkout.js';
 import { initWaitlist } from './waitlist.js';
 import { track } from './analytics.js';
 
@@ -37,7 +38,7 @@ document.addEventListener('keydown', (e) => {
 document.addEventListener('click', (e) => {
   const buy = e.target.closest('[data-buy]');
   if (buy && buy.getAttribute('href')?.startsWith('https://buy.stripe.com/')) {
-    track('Checkout click', { model: buy.dataset.buy });
+    track('Checkout click', { model: buy.dataset.buy, zone: buy.dataset.zone || 'europe' });
   }
   if (e.target.closest('[data-waitlist-mail]')) track('Waitlist signup');
 });
@@ -159,6 +160,8 @@ const [screens, library, sale] = await Promise.all([
   loadJSON('data/library.json'),
   loadJSON('data/sale.json')
 ]);
+// Pick the shipping zone first, so the sales window starts with the right links.
+initCheckout();
 // Without sale data, leave the buttons as written in the HTML (Stripe shows its own message
 // when a link is deactivated), rather than hiding checkout during an open wave.
 if (sale) initSale(sale);
