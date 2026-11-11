@@ -64,7 +64,8 @@ export function initSale(config) {
     const open = s.state === 'open';
     for (const b of buttons) {
       if (open) {
-        b.el.setAttribute('href', b.href);
+        // data-href is the link for the chosen shipping zone (checkout.js).
+        b.el.setAttribute('href', b.el.dataset.href || b.href);
         b.el.textContent = b.text;
         if (b.target) b.el.setAttribute('target', b.target);
       } else {

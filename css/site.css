@@ -184,6 +184,14 @@ section[id] { scroll-margin-top: 72px; }
   .hero__stage .scene__photo { object-position: 50% 66%; }
   .hero__text { padding-top: 40px; }
 }
+@media (max-width: 640px) {
+  .hero__stage { height: 56svh; }
+  .hero__text { display: flex; flex-direction: column; padding-top: 28px; }
+  .hero__title { font-size: 2.5rem; margin-bottom: 0; }
+  .hero__actions { order: 1; margin: 1.25rem 0 1.25rem; }
+  .hero__lede { order: 2; }
+  .hero__edition { order: 3; }
+}
 
 /* Sections */
 main > section { padding: clamp(72px, 12vw, 160px) var(--gutter); }
@@ -201,7 +209,9 @@ main > .hero { padding: 0; }
 .object__copy { grid-column: 1 / span 5; position: sticky; top: 110px; }
 .object__copy h2 { margin-bottom: 1.5rem; }
 .object__photo { margin: 0; }
-.object__photo img { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.object__photo > picture img,
+.object__scene { border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.object__photo > picture img { width: 100%; height: auto; }
 .object__photo figcaption { font-size: 0.875rem; color: var(--ink-soft); margin-top: 0.6rem; }
 .object__photo--a { grid-column: 7 / span 3; margin-top: 18vh; }
 .object__photo--b { grid-column: 10 / span 3; }
@@ -237,7 +247,8 @@ main > .hero { padding: 0; }
   padding: 0; border: 2px solid transparent; border-radius: var(--radius);
   background: none; cursor: pointer; aspect-ratio: 3 / 4; overflow: hidden;
 }
-.viewer__scenes button img { width: 100%; height: 100%; object-fit: cover; }
+.viewer__scenes button { position: relative; }
+.viewer__scenes button > img { width: 100%; height: 100%; object-fit: cover; }
 .viewer__scenes button[aria-pressed='true'] { border-color: var(--brass); }
 .viewer__library { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -253,15 +264,21 @@ main > .hero { padding: 0; }
 .chip[aria-pressed='true'] { background: var(--paper); color: var(--ink); border-color: var(--paper); }
 
 .drop {
-  position: relative; display: grid; gap: 4px; padding: 20px;
-  border: 1px dashed rgba(230, 228, 224, 0.4); border-radius: var(--radius);
+  position: relative; display: grid; justify-items: start; gap: 6px; padding: 24px;
+  border: 1.5px dashed var(--brass); border-radius: var(--radius);
+  background: rgba(169, 129, 63, 0.08);
   cursor: pointer; transition: border-color 0.15s, background-color 0.15s;
 }
-.drop:hover, .drop.is-over { border-color: var(--brass); background: rgba(169, 129, 63, 0.1); }
+.drop:hover, .drop.is-over { border-style: solid; background: rgba(169, 129, 63, 0.16); }
 .drop input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .drop:focus-within { outline: 2px solid var(--brass); outline-offset: 3px; }
-.drop__title { font-weight: 600; }
+.drop__icon { color: #e3c38a; }
+.drop__title { font: 400 1.5rem/1.15 var(--serif); }
 .drop__hint { font-size: 0.875rem; color: rgba(230, 228, 224, 0.7); }
+.drop__button { margin-top: 10px; pointer-events: none; background: var(--paper); color: var(--ink); }
+.drop:hover .drop__button, .drop.is-over .drop__button { background: #e3c38a; }
+/* Phones can't drag files in, so don't offer it. */
+@media (hover: none) { .drop__drag { display: none; } }
 .viewer__status { font-size: 0.875rem; margin: 0.75rem 0 0; min-height: 1.4em; color: #e3c38a; }
 
 @media (max-width: 960px) {
@@ -269,9 +286,10 @@ main > .hero { padding: 0; }
 }
 
 /* Editions */
-.editions__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
+/* One model this wave: a single card, kept to a readable width. */
+.editions__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: var(--gutter); max-width: 52rem; }
 .edition { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.75rem; align-items: stretch; }
-.edition__photo { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.edition__photo { align-self: start; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
 /* Column layout so the buy button sits at the bottom of every card, level across the row. */
 .edition__body { display: flex; flex-direction: column; }
 .edition__cta { margin-top: auto; align-self: flex-start; }
@@ -279,7 +297,29 @@ main > .hero { padding: 0; }
 .edition__price { font: 400 2.5rem/1 var(--serif); color: var(--brass-deep); margin: 0.5rem 0 1.25rem; }
 .edition__list { margin: 0 0 1.75rem; padding: 0; list-style: none; }
 .edition__list li { padding: 0.55rem 0; border-top: 1px solid var(--line); font-size: 0.9375rem; }
-.editions__note { margin-top: 3rem; font-size: 0.9375rem; color: var(--ink-soft); }
+.editions__note { margin-top: 1rem; font-size: 0.9375rem; color: var(--ink-soft); }
+.editions__crypto { margin-top: 3rem; font-size: 0.9375rem; }
+.edition__ship { display: block; margin-top: 0.4rem; font: 400 0.9375rem/1.4 var(--sans); color: var(--ink-soft); }
+
+/* Shipping zone: a two-option switch above the cards */
+.zone {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1rem;
+  margin: 0 0 2.5rem; padding: 0; border: 0;
+}
+.zone__legend { float: left; padding: 0; font-size: 0.9375rem; color: var(--ink-soft); }
+.zone__option { position: relative; cursor: pointer; }
+.zone__option input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.zone__option span {
+  display: inline-block; padding: 0.55rem 1rem; border: 1px solid var(--line); border-radius: 999px;
+  font-size: 0.9375rem; transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+.zone__option:hover span { border-color: var(--ink); }
+.zone__option input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+.zone__option input:focus-visible + span { outline: 2px solid var(--fjord); outline-offset: 3px; }
+@media (max-width: 480px) {
+  .zone { gap: 0.5rem; }
+  .zone__legend { width: 100%; }
+}
 
 @media (max-width: 1100px) {
   .editions__grid { grid-template-columns: 1fr; gap: 4rem; }
@@ -373,3 +413,18 @@ main > .diy { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7
 .thanks { padding: 140px var(--gutter) 96px; max-width: 46rem; }
 .thanks h1 { font: 400 clamp(2.4rem, 5vw, 3.75rem)/1.02 var(--serif); margin-bottom: 1.5rem; }
 .thanks p { color: var(--ink-soft); }
+
+/* Buy bar: pinned to the bottom while a wave is open (js/buybar.js) */
+.buybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: rgba(216, 214, 209, 0.96); backdrop-filter: blur(8px);
+  box-shadow: 0 -1px 0 var(--line), 0 -8px 24px -12px rgba(30, 35, 39, 0.25);
+}
+.buybar[hidden] { display: none; }
+.buybar__text { margin: 0; font-size: 0.9375rem; display: flex; flex-wrap: wrap; gap: 0 0.6rem; align-items: baseline; }
+.buybar__text strong { font-weight: 600; }
+.buybar__text span { color: var(--ink-soft); }
+.buybar__cta { flex: none; }
+body.has-buybar { padding-bottom: 72px; }
