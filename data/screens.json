@@ -57,7 +57,8 @@
       "tags": [
         "hero"
       ],
-      "alt": "Vernis frame on a table overlooking the Oslo fjord"
+      "alt": "Vernis frame on a table overlooking the Oslo fjord",
+      "viewer": false
     },
     {
       "id": "oslo-view-21",
@@ -86,7 +87,8 @@
       "tags": [
         "hero"
       ],
-      "alt": "Vernis frame by a window above the Oslo Opera House"
+      "alt": "Vernis frame by a window above the Oslo Opera House",
+      "viewer": false
     },
     {
       "id": "shelf-wide-09",
@@ -203,7 +205,8 @@
       "tags": [
         "lifestyle"
       ],
-      "alt": "Vernis frame on a bench by a canal between apartment buildings"
+      "alt": "Vernis frame on a bench by a canal between apartment buildings",
+      "viewer": false
     },
     {
       "id": "canal-24",
@@ -290,7 +293,8 @@
       "tags": [
         "product"
       ],
-      "alt": "Side view of the Vernis metal frame showing its depth and ports"
+      "alt": "Side view of the Vernis metal frame showing its depth and ports",
+      "viewer": false
     },
     {
       "id": "grass-art-28",
@@ -377,7 +381,8 @@
       "tags": [
         "lifestyle"
       ],
-      "alt": "Vernis frame displaying colourful artwork by a canal"
+      "alt": "Vernis frame displaying colourful artwork by a canal",
+      "viewer": false
     },
     {
       "id": "canal-art-32",

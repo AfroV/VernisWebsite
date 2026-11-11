@@ -168,6 +168,8 @@ initCheckout();
 if (sale) { initSale(sale); initBuyBar(sale); }
 const scenes = (screens?.scenes || []).filter((s) => s.corners);
 const sceneById = Object.fromEntries(scenes.map((s) => [s.id, s]));
+// The viewer's picker skips near-duplicate photos ("viewer": false); they can still be used elsewhere.
+const viewerScenes = scenes.filter((s) => s.viewer !== false);
 const pieces = library?.items || [];
 
 const srcset = (scene, ext) =>
@@ -235,7 +237,7 @@ function fileKind(file) {
 
 function initViewer() {
   const section = document.getElementById('try');
-  if (!scenes.length) { section.hidden = true; return; }
+  if (!viewerScenes.length) { section.hidden = true; return; }
 
   const stage = document.getElementById('viewer-stage');
   const photo = document.getElementById('viewer-photo');
@@ -246,7 +248,7 @@ function initViewer() {
   const drop = document.getElementById('drop');
   const status = document.getElementById('viewer-status');
 
-  let scene = sceneById['canal-23'] || scenes[0];
+  let scene = viewerScenes.find((s) => s.id === 'canal-24') || viewerScenes[0];
   let art = pieces.length ? { kind: 'library', item: pieces[0] } : { kind: 'none' };
   let userUrl = null;
   let lastFileType = '';
@@ -322,7 +324,7 @@ function initViewer() {
     render();
   }
 
-  sceneList.replaceChildren(...scenes.map((s) => {
+  sceneList.replaceChildren(...viewerScenes.map((s) => {
     const b = document.createElement('button');
     b.type = 'button';
     b.setAttribute('aria-pressed', 'false');
@@ -332,7 +334,7 @@ function initViewer() {
     img.alt = '';
     img.loading = 'lazy';
     b.append(img);
-    if (pieces.length) thumbStill(b, img, s, pieces[scenes.indexOf(s) % pieces.length]);
+    if (pieces.length) thumbStill(b, img, s, pieces[viewerScenes.indexOf(s) % pieces.length]);
     b.addEventListener('click', () => selectScene(s, b));
     return b;
   }));
@@ -371,7 +373,7 @@ function initViewer() {
     });
   }
 
-  selectScene(scene, sceneList.children[scenes.indexOf(scene)]);
+  selectScene(scene, sceneList.children[viewerScenes.indexOf(scene)]);
 }
 
 // ---------------------------------------------
