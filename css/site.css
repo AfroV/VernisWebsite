@@ -306,10 +306,8 @@ main > .hero { padding: 0; }
   display: inline-block; padding: 0.55rem 1rem; border: 1px solid var(--line); border-radius: 999px;
   font-size: 0.9375rem; transition: background-color 0.15s, color 0.15s, border-color 0.15s;
 }
-.zone__option small { margin-left: 0.35rem; font-size: inherit; color: var(--ink-soft); }
 .zone__option:hover span { border-color: var(--ink); }
 .zone__option input:checked + span { background: var(--ink); border-color: var(--ink); color: var(--paper); }
-.zone__option input:checked + span small { color: inherit; opacity: 0.75; }
 .zone__option input:focus-visible + span { outline: 2px solid var(--fjord); outline-offset: 3px; }
 @media (max-width: 480px) {
   .zone { gap: 0.5rem; }

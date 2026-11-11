@@ -20,6 +20,8 @@ test('unknown time zone falls back to Europe', () => {
 });
 
 test('shipping text', () => {
-  assert.equal(shippingText('30', 'europe'), '+ €30 shipping in Europe');
-  assert.equal(shippingText('60', 'world'), '+ €60 shipping worldwide');
+  assert.equal(shippingText('35', 'europe'), '+ €35 shipping to Europe');
+  assert.equal(shippingText('70', 'world'), '+ €70 shipping worldwide');
+  assert.equal(shippingText('35', 'europe', '600'), '+ €35 shipping to Europe, €635 in total');
+  assert.equal(shippingText('70', 'world', '600'), '+ €70 shipping worldwide, €670 in total');
 });

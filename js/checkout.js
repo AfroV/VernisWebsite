@@ -26,9 +26,11 @@ export function guessZone(timeZone) {
   return 'world';
 }
 
-/** Pure: the line under each price. */
-export function shippingText(fee, zone) {
-  return `+ €${fee} shipping ${zone === 'world' ? 'worldwide' : 'in Europe'}`;
+/** Pure: the line under each price: shipping for the zone, then frame + shipping. */
+export function shippingText(fee, zone, price) {
+  const line = `+ €${fee} shipping ${zone === 'world' ? 'worldwide' : 'to Europe'}`;
+  const total = Number(price) + Number(fee);
+  return price && Number.isFinite(total) ? `${line}, €${total} in total` : line;
 }
 
 /**
@@ -53,7 +55,7 @@ export function initCheckout() {
       b.dataset.zone = radio.value;
       if (!sale || sale === 'open') b.setAttribute('href', link);
     }
-    fees.forEach((f) => { f.textContent = shippingText(radio.dataset.fee, radio.value); });
+    fees.forEach((f) => { f.textContent = shippingText(radio.dataset.fee, radio.value, f.dataset.price); });
   };
 
   let timeZone;
