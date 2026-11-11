@@ -184,6 +184,14 @@ section[id] { scroll-margin-top: 72px; }
   .hero__stage .scene__photo { object-position: 50% 66%; }
   .hero__text { padding-top: 40px; }
 }
+@media (max-width: 640px) {
+  .hero__stage { height: 56svh; }
+  .hero__text { display: flex; flex-direction: column; padding-top: 28px; }
+  .hero__title { font-size: 2.5rem; margin-bottom: 0; }
+  .hero__actions { order: 1; margin: 1.25rem 0 1.25rem; }
+  .hero__lede { order: 2; }
+  .hero__edition { order: 3; }
+}
 
 /* Sections */
 main > section { padding: clamp(72px, 12vw, 160px) var(--gutter); }
@@ -201,7 +209,9 @@ main > .hero { padding: 0; }
 .object__copy { grid-column: 1 / span 5; position: sticky; top: 110px; }
 .object__copy h2 { margin-bottom: 1.5rem; }
 .object__photo { margin: 0; }
-.object__photo img { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.object__photo > picture img,
+.object__scene { border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.object__photo > picture img { width: 100%; height: auto; }
 .object__photo figcaption { font-size: 0.875rem; color: var(--ink-soft); margin-top: 0.6rem; }
 .object__photo--a { grid-column: 7 / span 3; margin-top: 18vh; }
 .object__photo--b { grid-column: 10 / span 3; }
@@ -237,7 +247,8 @@ main > .hero { padding: 0; }
   padding: 0; border: 2px solid transparent; border-radius: var(--radius);
   background: none; cursor: pointer; aspect-ratio: 3 / 4; overflow: hidden;
 }
-.viewer__scenes button img { width: 100%; height: 100%; object-fit: cover; }
+.viewer__scenes button { position: relative; }
+.viewer__scenes button > img { width: 100%; height: 100%; object-fit: cover; }
 .viewer__scenes button[aria-pressed='true'] { border-color: var(--brass); }
 .viewer__library { display: flex; flex-wrap: wrap; gap: 8px; }
 
@@ -271,7 +282,7 @@ main > .hero { padding: 0; }
 /* Editions */
 .editions__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--gutter); }
 .edition { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 1.75rem; align-items: stretch; }
-.edition__photo { width: 100%; height: auto; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
+.edition__photo { align-self: start; border-radius: var(--radius-photo); box-shadow: var(--shadow-photo); }
 /* Column layout so the buy button sits at the bottom of every card, level across the row. */
 .edition__body { display: flex; flex-direction: column; }
 .edition__cta { margin-top: auto; align-self: flex-start; }
@@ -397,3 +408,22 @@ main > .diy { padding-top: clamp(48px, 7vw, 88px); padding-bottom: clamp(48px, 7
 .thanks { padding: 140px var(--gutter) 96px; max-width: 46rem; }
 .thanks h1 { font: 400 clamp(2.4rem, 5vw, 3.75rem)/1.02 var(--serif); margin-bottom: 1.5rem; }
 .thanks p { color: var(--ink-soft); }
+
+/* Quiet button for things not on sale yet */
+.btn--ghost { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px var(--ink); }
+.btn--ghost:hover { background: var(--ink); color: var(--paper); }
+
+/* Buy bar: pinned to the bottom while a wave is open (js/buybar.js) */
+.buybar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 40;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
+  background: rgba(216, 214, 209, 0.96); backdrop-filter: blur(8px);
+  box-shadow: 0 -1px 0 var(--line), 0 -8px 24px -12px rgba(30, 35, 39, 0.25);
+}
+.buybar[hidden] { display: none; }
+.buybar__text { margin: 0; font-size: 0.9375rem; display: flex; flex-wrap: wrap; gap: 0 0.6rem; align-items: baseline; }
+.buybar__text strong { font-weight: 600; }
+.buybar__text span { color: var(--ink-soft); }
+.buybar__cta { flex: none; }
+body.has-buybar { padding-bottom: 72px; }

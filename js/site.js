@@ -5,6 +5,7 @@
 import { attachWarp } from './screen-warp.js';
 import { initSale } from './sale.js';
 import { initCheckout } from './checkout.js';
+import { initBuyBar } from './buybar.js';
 import { initWaitlist } from './waitlist.js';
 import { track } from './analytics.js';
 
@@ -164,7 +165,7 @@ const [screens, library, sale] = await Promise.all([
 initCheckout();
 // Without sale data, leave the buttons as written in the HTML (Stripe shows its own message
 // when a link is deactivated), rather than hiding checkout during an open wave.
-if (sale) initSale(sale);
+if (sale) { initSale(sale); initBuyBar(sale); }
 const scenes = (screens?.scenes || []).filter((s) => s.corners);
 const sceneById = Object.fromEntries(scenes.map((s) => [s.id, s]));
 const pieces = library?.items || [];
@@ -331,6 +332,7 @@ function initViewer() {
     img.alt = '';
     img.loading = 'lazy';
     b.append(img);
+    if (pieces.length) thumbStill(b, img, s, pieces[scenes.indexOf(s) % pieces.length]);
     b.addEventListener('click', () => selectScene(s, b));
     return b;
   }));
@@ -372,5 +374,50 @@ function initViewer() {
   selectScene(scene, sceneList.children[scenes.indexOf(scene)]);
 }
 
+// ---------------------------------------------
+// Stills: every other product photo shows a piece too, so no screen is left black
+// ---------------------------------------------
+/** A still version of a library piece: a video's poster, or the image itself. */
+const stillOf = (item) => (item.type === 'video' ? (item.poster ? { type: 'image', src: item.poster } : null) : item);
+
+function initStills() {
+  if (!pieces.length) return;
+  document.querySelectorAll('.scene[data-scene]:not(.hero__stage)').forEach((fig, n) => {
+    const scene = sceneById[fig.dataset.scene];
+    const photo = fig.querySelector('.scene__photo');
+    const layer = fig.querySelector('.scene__art');
+    if (!scene || !photo || !layer) return;
+    attachWarp(photo, layer, scene.corners);
+    const item = pieces[(Number(fig.dataset.art ?? n) || 0) % pieces.length];
+    const still = stillOf(item);
+    if (!still) return;
+    // Load the piece only when the photo is about to scroll into view.
+    const io = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      io.disconnect();
+      showArt(layer, createArt(still)).catch(() => clearArt(layer));
+    }, { rootMargin: '600px 0px' });
+    io.observe(fig);
+  });
+}
+
+/** A small still on a viewer thumbnail's screen: just the image, no blurred backdrop. */
+function thumbStill(button, img, scene, item) {
+  const still = stillOf(item);
+  if (!scene.corners || scene.originalArt || !still) return;
+  const layer = document.createElement('div');
+  layer.className = 'scene__art';
+  layer.setAttribute('aria-hidden', 'true');
+  const piece = document.createElement('div');
+  piece.className = 'art-piece';
+  const art = document.createElement('img');
+  Object.assign(art, { className: 'art__main', alt: '', loading: 'lazy', decoding: 'async', src: still.src });
+  piece.append(art);
+  layer.append(piece);
+  button.append(layer);
+  attachWarp(img, layer, scene.corners);
+}
+
 initHero();
+initStills();
 initViewer();
