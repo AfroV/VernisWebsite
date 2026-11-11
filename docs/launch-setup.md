@@ -23,7 +23,7 @@ Følg rekkefølgen. Alt med 🔧 er noe du gjør i en nettleser; send meg det so
 
 | Navn | Pris | Valuta | Type |
 |---|---|---|---|
-| Vernis Side | 600 | EUR | One-off |
+| Vernis | 650 | EUR | One-off |
 | Vernis Rear | 750 | EUR | One-off |
 
 Legg gjerne inn et bilde fra `images/scenes/` (f.eks. `angle-34-1600.jpg`).
@@ -45,7 +45,7 @@ Posten/Bring eller DHL for en pakke på **[vekt]**:
 ### A5. Betalingslenker 🔧
 **Payment Links → New**, én for hver modell:
 
-1. **Product:** Vernis Side (antall 1, la kunden *ikke* endre antall – eller tillat 1–3 om du vil).
+1. **Product:** Vernis (antall 1, la kunden *ikke* endre antall – eller tillat 1–3 om du vil).
 2. **Options → Collect customers' addresses:** *Shipping address*. Velg landene du sender til.
 3. **Options → Shipping rates:** legg til de tre satsene.
 4. **Options → Require customers to provide a phone number:** på (fraktfirma trenger det).
