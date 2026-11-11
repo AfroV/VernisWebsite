@@ -1,7 +1,7 @@
 /**
  * VERNIS - buy bar
  * A slim bar pinned to the bottom of the screen while a wave is open: price, closing time and a
- * Reserve link to the editions. Hidden over the hero (which has its own button) and while the
+ * Order now link to the editions. Hidden over the hero (which has its own button) and while the
  * editions are on screen (the real buttons are right there).
  */
 import { saleState } from './sale.js';
