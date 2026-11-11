@@ -96,14 +96,13 @@
         </figure>
       </section>
 
-      <!-- Editions: Vernis Side on sale this wave; Vernis Rear follows after heat testing -->
+      <!-- Editions: only Vernis Side is on sale this wave -->
       <section class="editions" id="editions" aria-labelledby="editions-title">
         <div class="section-head">
           <h2 id="editions-title">Vernis Side, this wave</h2>
           <p>
             Cased in brass, signed and numbered. Wave 2 is open for a short window, and we build
-            exactly what's ordered. Priced in euros and paid by card. Vernis Rear follows in a
-            later wave, once its ventilation has passed heat testing.
+            exactly what's ordered. Priced in euros and paid by card.
           </p>
           <p class="sale-status" data-sale-note role="status"></p>
         </div>
@@ -138,29 +137,6 @@
               <a href="https://buy.stripe.com/test_4gM28sbeE3Ol8744rZ0VO01" class="btn edition__cta" data-buy="side"
                 data-link-europe="https://buy.stripe.com/test_4gM28sbeE3Ol8744rZ0VO01"
                 data-link-world="https://buy.stripe.com/test_aFa9AU4QgesZ5YW9Mj0VO02" target="_blank" rel="noopener">Reserve Vernis Side</a>
-            </div>
-          </article>
-
-          <article class="edition">
-            <figure class="scene edition__photo" data-scene="oslo-view-20" data-art="2">
-            <picture>
-              <!-- [ASSET NEEDED] a photo of the larger rear-cable model -->
-              <source type="image/webp" srcset="images/scenes/oslo-view-20-800.webp" />
-              <img class="scene__photo" src="images/scenes/oslo-view-20-800.jpg" width="800" height="1067" loading="lazy" alt="Vernis brass frame on a table overlooking the Oslo fjord" />
-            </picture>
-              <div class="scene__art" aria-hidden="true"></div>
-            </figure>
-            <div class="edition__body">
-              <h3>Vernis Rear</h3>
-              <p class="edition__price">€750 <span class="edition__ship">Coming in a later wave</span></p>
-              <ul class="edition__list">
-                <li>A slightly larger brass case with a clean back</li>
-                <li>Cable out at the rear, so nothing shows from the front or sides</li>
-                <li>4-inch touch screen, your art stored on the frame (128 GB)</li>
-                <li>Signed and numbered, with the plug for your country</li>
-              </ul>
-              <!-- Not on sale until the vents pass heat testing. Its Stripe links are deactivated. -->
-              <a href="#waitlist" class="btn btn--ghost edition__cta">Join the list for Vernis Rear</a>
             </div>
           </article>
         </div>
@@ -214,8 +190,8 @@
         <div class="try__intro">
           <h2 id="try-title">See it with your own art.</h2>
           <p>
-            Pick a setting and a piece, or drop in your own image, GIF or video. Your file stays in
-            this browser. Nothing is uploaded.
+            Open an image, GIF or video from your own files and see it on the frame. Your file stays
+            in this browser. Nothing is uploaded.
           </p>
         </div>
 
@@ -226,6 +202,16 @@
           </figure>
 
           <div class="viewer__controls">
+            <div class="viewer__group">
+              <label class="drop" id="drop">
+                <input type="file" id="viewer-file" accept="image/*,.svg,video/mp4,video/webm,video/quicktime" />
+                <svg class="drop__icon" viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M12 16V4m0 0-4.5 4.5M12 4l4.5 4.5M4 15v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <span class="drop__title">Try it with your own art</span>
+                <span class="drop__hint">JPG, PNG, GIF, WebP, SVG, MP4 or WebM<span class="drop__drag">, or drag a file here</span>. It stays on your device.</span>
+                <span class="btn btn--small drop__button" aria-hidden="true">Browse files</span>
+              </label>
+              <p class="viewer__status" id="viewer-status" role="status"></p>
+            </div>
             <fieldset class="viewer__group">
               <legend>Setting</legend>
               <div class="viewer__scenes" id="viewer-scenes"></div>
@@ -236,14 +222,6 @@
               <div class="viewer__library" id="viewer-library"></div>
             </fieldset>
 
-            <div class="viewer__group">
-              <label class="drop" id="drop">
-                <input type="file" id="viewer-file" accept="image/*,.svg,video/mp4,video/webm,video/quicktime" />
-                <span class="drop__title">Use your own art</span>
-                <span class="drop__hint">Choose a file or drop it here. JPG, PNG, GIF, WebP, SVG, MP4 or WebM.</span>
-              </label>
-              <p class="viewer__status" id="viewer-status" role="status"></p>
-            </div>
 
           </div>
         </div>
@@ -328,15 +306,6 @@
             with the software pre-installed, a power supply with your plug type, and an assembly
             guide. Putting it together takes a few minutes and needs no soldering. Your signed,
             numbered certificate is delivered digitally.
-          </p>
-        </details>
-        <details>
-          <summary>Which one should I choose?</summary>
-          <p>
-            Vernis Side is the original size, with ventilation and the cable leaving from the side.
-            Vernis Rear is a little larger and routes the cable out the back, so it looks clean from
-            every angle you'd normally see it. It isn't on sale yet: we're still heat-testing its
-            ventilation, and it will come in a later wave.
           </p>
         </details>
         <details>
