@@ -9,7 +9,7 @@
 1. **Norwegian VAT (MVA).** Sales to customers in Norway are domestic and carry 25% MVA, and
    Norwegian consumers must be shown prices *including* MVA. Exports outside Norway carry no
    Norwegian MVA; the buyer pays import VAT on arrival. Options:
-   - (a) one price for everyone (€600 / €750), MVA included for Norwegian buyers (lower margin on
+   - (a) one price for everyone (€650), MVA included for Norwegian buyers (lower margin on
      Norwegian orders);
    - (b) separate Norway checkout links with MVA added on top (€750 / €937.50).
    Which do we use? The draft below is written for **(a)**.
@@ -41,7 +41,6 @@ Email: admin@25time.no
 A Vernis frame kit:
 
 - **Vernis Side** — brass case with ventilation and the cable at the side.
-- **Vernis Rear** — a slightly larger brass case with the cable at the back.
 
 Each kit contains the brass case, a Raspberry Pi 5, a 4-inch touch screen, a storage card with
 the Vernis software pre-installed, a power supply with the plug you choose, and an assembly
@@ -59,7 +58,7 @@ sign and ship them. The number of frames in a wave is not fixed in advance.
 
 ## 4. Prices and payment
 
-- Prices are in euros (EUR): **Vernis Side €600, Vernis Rear €750**.
+- Prices are in euros (EUR): **Vernis Side €650**.
 - For delivery in Norway, prices include 25% Norwegian VAT (MVA). **[DEPENDS ON QUESTION 1]**
 - For delivery outside Norway, no Norwegian VAT is charged. Your country may charge import VAT,
   customs duty and a carrier handling fee when the parcel arrives. These are paid by you to the
