@@ -1,6 +1,6 @@
 # Vernis — Terms of Sale (DRAFT for review)
 
-> **Status:** Draft, 7 October 2026. Not published. Replaces the February 2026 terms, which
+> **Status:** Published as terms.html on 12 November 2026 (wave 2). This draft keeps the open questions for a lawyer. Draft, 7 October 2026. Replaces the February 2026 terms, which
 > describe the old NFT mint / burn-to-claim model.
 > Everything in **[BRACKETS]** must be filled in or confirmed before publishing.
 
