@@ -1,6 +1,6 @@
 # Vernis — Privacy Policy (DRAFT for review)
 
-> **Status:** Draft, 7 October 2026. Not published. Updates the February 2026 policy for card
+> **Status:** Published as privacy.html on 12 November 2026 (wave 2; Mailchimp not in use). This draft keeps the open questions for a lawyer. Draft, 7 October 2026. Updates the February 2026 policy for card
 > checkout (Stripe), the mailing list (Mailchimp), cookieless analytics (Plausible) and the
 > "see it with your own art" viewer. **[BRACKETS]** must be filled in or confirmed.
 
